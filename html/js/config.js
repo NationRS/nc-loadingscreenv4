@@ -3,7 +3,7 @@
 
 const config = {
     // Appearance
-    appearance: {
+    
         // Colors (using CSS variables - RGB format)
         primaryColor: "30, 136, 229",     // Main color (default: blue)
         accentColor: "0, 176, 255",       // Secondary color (default: light blue)
@@ -16,8 +16,7 @@ const config = {
         overlayOpacity: 0.7,
         
         // Logo animation (true by default, set to false to disable)
-        animateLogo: true
-    },
+        animateLogo: true,
     
     // Features displayed on Server Info tab
     features: [

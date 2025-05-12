@@ -1,0 +1,28 @@
+{
+  "updates": [
+    {
+      "type": "announcement",
+      "title": "Server Maintenance Completed",
+      "content": "**Server Maintenance Completed**\n\nWe've successfully completed our scheduled server maintenance. All systems are now back online with improved performance. Thank you for your patience!\n\nPlease let us know if you encounter any issues.",
+      "date": "2025-05-10T15:30:00Z",
+      "author": "Server Admin",
+      "images": []
+    },
+    {
+      "type": "feature",
+      "title": "New Jobs System Released",
+      "content": "**New Jobs System Released**\n\nWe're excited to announce our completely revamped jobs system! This update includes:\n\n- 10 new job types with unique progression paths\n- Enhanced rewards and benefits\n- New job-specific vehicles and tools\n- Improved job interactions\n\nCheck out the updated job listings at the employment center!",
+      "date": "2025-05-08T12:00:00Z",
+      "author": "Development Team",
+      "images": []
+    },
+    {
+      "type": "event",
+      "title": "Weekend Racing Tournament",
+      "content": "**Weekend Racing Tournament**\n\nJoin us this weekend for our monthly racing tournament! Race against other players for a chance to win exclusive prizes and in-game currency.\n\n**Event Details:**\n- Starting: Friday 8PM EDT\n- Location: Downtown Racing Circuit\n- Prizes: $50,000 in-game cash and exclusive vehicle skins\n\nRegistration is open now at the Racing Club.",
+      "date": "2025-05-05T17:45:00Z",
+      "author": "Events Team",
+      "images": []
+    }
+  ]
+}

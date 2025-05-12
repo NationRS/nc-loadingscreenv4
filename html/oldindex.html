@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server Loading Screen</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="js/config.js"></script>
+</head>
+<body>
+    <div class="custom-cursor"></div>
+    
+    <!-- Background container -->
+    <div id="background-container">
+        <!-- Background image or YouTube embed will be placed here dynamically -->
+    </div>
+    
+    <div class="background-overlay"></div>
+
+    <div class="main-container">
+        <!-- SIMPLIFIED HEADER - LOGO ONLY -->
+        <header>
+            <div class="logo-only-container">
+                <img src="img/logo.png" alt="Server Logo" class="server-logo logo-animated" id="server-logo">
+            </div>
+        </header>
+
+        <div class="content-container">
+            <!-- NEW CATEGORIES NAV TABS -->
+            <div class="categories-tabs">
+                <div class="tabs-container">
+                    <div class="tab active" data-tab="server-info">
+                        <i class="fas fa-server"></i>
+                        <span>Server Info</span>
+                    </div>
+                    <div class="tab" data-tab="staff">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Staff Team</span>
+                    </div>
+                    <div class="tab" data-tab="donors">
+                        <i class="fas fa-gem"></i>
+                        <span>Top Donors</span>
+                    </div>
+                    <div class="tab" data-tab="about">
+                        <i class="fas fa-info-circle"></i>
+                        <span>About</span>
+                    </div>
+                    <div class="tab" data-tab="minigame">
+                        <i class="fas fa-gamepad"></i>
+                        <span>Mini Game</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- TAB CONTENT PANELS -->
+            <div class="tab-content-container">
+                <!-- SERVER INFO TAB -->
+                <div class="tab-content active no-scroll" id="server-info-tab">
+                    <div class="server-info-panel">
+                        <div class="info-header">
+                            <h2>SERVER INFORMATION</h2>
+                            <div class="line-decoration"></div>
+                        </div>
+                        
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <div class="stat-title">SERVER UPTIME</div>
+                                    <div class="stat-value" id="stat-server-uptime">150 days online</div>
+                                </div>
+                            </div>
+                            
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-gamepad"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <div class="stat-title">ACTIVITIES</div>
+                                    <div class="stat-value" id="stat-activities">45 activities</div>
+                                </div>
+                            </div>
+                            
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-car"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <div class="stat-title">VEHICLES</div>
+                                    <div class="stat-value" id="stat-vehicles">250 vehicles</div>
+                                </div>
+                            </div>
+                            
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-briefcase"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <div class="stat-title">JOBS</div>
+                                    <div class="stat-value" id="stat-jobs">60 jobs</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="server-highlights">
+                            <div class="highlight-card">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-street-view"></i>
+                                </div>
+                                <div class="highlight-content">
+                                    <div class="highlight-title">Active Community</div>
+                                    <div class="highlight-desc">Join a vibrant and welcoming player base!</div>
+                                </div>
+                            </div>
+                            <div class="highlight-card">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-trophy"></i>
+                                </div>
+                                <div class="highlight-content">
+                                    <div class="highlight-title">Events & Rewards</div>
+                                    <div class="highlight-desc">Participate in weekly events and win prizes.</div>
+                                </div>
+                            </div>
+                            <div class="highlight-card">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <div class="highlight-content">
+                                    <div class="highlight-title">Safe Environment</div>
+                                    <div class="highlight-desc">Strict moderation for a safe experience.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STAFF TEAM TAB - ENHANCED WITH ADDITIONAL CONTENT -->
+                <div class="tab-content no-scroll" id="staff-tab">
+                    <div class="staff-panel">
+                        <div class="info-header">
+                            <h2>STAFF TEAM</h2>
+                            <div class="line-decoration"></div>
+                        </div>
+                        <div class="staff-list">
+                            <div class="staff-card">
+                                <div class="staff-avatar"><img src="img/staff1.png" alt="Staff 1"></div>
+                                <div class="staff-info">
+                                    <div class="staff-name">AdminOne</div>
+                                    <div class="staff-role">Owner</div>
+                                </div>
+                            </div>
+                            <div class="staff-card">
+                                <div class="staff-avatar"><img src="img/staff2.png" alt="Staff 2"></div>
+                                <div class="staff-info">
+                                    <div class="staff-name">ModMaster</div>
+                                    <div class="staff-role">Moderator</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="staff-bottom">
+                            <div class="staff-positions">
+                                <div class="position-item">
+                                    <i class="fas fa-gavel"></i>
+                                    <div class="position-name">Administration</div>
+                                </div>
+                                <div class="position-item">
+                                    <i class="fas fa-headset"></i>
+                                    <div class="position-name">Support</div>
+                                </div>
+                                <div class="position-item">
+                                    <i class="fas fa-user-shield"></i>
+                                    <div class="position-name">Moderation</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TOP DONORS TAB - LUXURIOUS REDESIGN -->
+                <div class="tab-content no-scroll" id="donors-tab">
+                    <div class="donors-panel">
+                        <div class="info-header">
+                            <h2>TOP DONORS</h2>
+                            <div class="line-decoration"></div>
+                        </div>
+                        <div class="donors-list">
+                            <div class="donor-card">
+                                <div class="donor-avatar"><img src="img/donor1.png" alt="Donor 1"></div>
+                                <div class="donor-info">
+                                    <div class="donor-name">DonorOne</div>
+                                    <div class="donor-amount">$500</div>
+                                </div>
+                            </div>
+                            <div class="donor-card">
+                                <div class="donor-avatar"><img src="img/donor2.png" alt="Donor 2"></div>
+                                <div class="donor-info">
+                                    <div class="donor-name">DonorTwo</div>
+                                    <div class="donor-amount">$300</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ABOUT TAB -->
+                <div class="tab-content no-scroll" id="about-tab">
+                    <div class="about-panel">
+                        <div class="info-header">
+                            <h2>ABOUT OUR SERVER</h2>
+                            <div class="line-decoration"></div>
+                        </div>
+                        <div class="about-content">
+                            <p>Welcome to our server! We are dedicated to providing a unique and fun experience for all players. Explore, play, and make new friends!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MINIGAME TAB -->
+                <div class="tab-content no-scroll" id="minigame-tab">
+                    <div class="minigame-panel">
+                        <div class="info-header">
+                            <h2>SPEED CLICKER</h2>
+                            <div class="line-decoration"></div>
+                        </div>
+                        <div class="minigame-content">
+                            <p>Click the button as fast as you can!</p>
+                            <button id="minigame-btn">Start</button>
+                            <div id="minigame-result"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="loading-section">
+                <div class="tip-container">
+                    <div class="tip-icon"><i class="fas fa-lightbulb"></i></div>
+                    <div class="tip-content" id="tip-content">Loading tips will appear here...</div>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="progress-bar"></div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="social-links" id="social-links">
+                <!-- Social links will be added dynamically from config -->
+            </div>
+            <div class="footer-info">
+                <span>&copy; 2025 Server Name. All rights reserved.</span>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Audio preload -->
+    <audio id="background-music" preload="auto" loop autoplay>
+        <source src="music/background.mp3" type="audio/mp3">
+    </audio>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,1610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server Loading Screen</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="js/config.js"></script>
+</head>
+<body>
+    <div class="custom-cursor"></div>
+    
+    <!-- Background container -->
+    <div id="background-container">
+        <!-- Background image or YouTube embed will be placed here dynamically -->
+    </div>
+    
+    <div class="background-overlay"></div>
+
+    <div class="main-container">
+        <!-- SIMPLIFIED HEADER - LOGO ONLY -->
+        <header>
+            <div class="logo-only-container">
+                <img src="img/logo.png" onerror="this.onerror=null;this.src='img/logo.png';" alt="Server Logo" class="server-logo logo-animated" id="server-logo">
+            </div>
+            <div style="position: absolute; top: 20px; right: 30px; z-index: 10;">
+      <div id="custom-theme-dropdown" style="position: absolute; top: 20px; right: 30px; z-index: 10;"><div class="audio-controls" id="audio-controls" aria-expanded="true">
+                
+                <div class="audio-buttons">
+                    
+                    <span>Theme</span>
+                </div>
+            </div></div>
+    </div>
+  </header>
+
+        <div class="content-container">
+            <!-- NEW CATEGORIES NAV TABS -->
+            <div class="categories-tabs">
+                <div class="tabs-container">
+                    <div class="tab active" data-tab="server-info">
+                        <i class="fas fa-server"></i>
+                        <span>Server Info</span>
+                    </div>
+                    <div class="tab" data-tab="staff">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Staff Team</span>
+                    </div>
+                    <div class="tab" data-tab="donors">
+                        <i class="fas fa-gem"></i>
+                        <span>Top Donors</span>
+                    </div>
+                    <div class="tab" data-tab="about">
+                        <i class="fas fa-info-circle"></i>
+                        <span>About</span>
+                    </div>
+                    <div class="tab" data-tab="minigame">
+                        <i class="fas fa-gamepad"></i>
+                        <span>Mini Game</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- TAB CONTENT PANELS -->
+            <div class="tab-content-container">
+                <!-- SERVER INFO TAB -->
+                <div class="tab-content active no-scroll" id="server-info-tab">
+                    <div class="server-info-panel">
+                        <div class="info-header">
+                            <h2>SERVER INFORMATION</h2>
+                            <div class="line-decoration"></div>
+                        </div>
+                        
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <div class="stat-title">SERVER UPTIME</div>
+                                    <div class="stat-value" id="stat-server-uptime">150 days online</div>
+                                </div>
+                            </div>
+                            
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-gamepad"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <div class="stat-title">ACTIVITIES</div>
+                                    <div class="stat-value" id="stat-activities">45 activities</div>
+                                </div>
+                            </div>
+                            
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-car"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <div class="stat-title">VEHICLES</div>
+                                    <div class="stat-value" id="stat-vehicles">250 vehicles</div>
+                                </div>
+                            </div>
+                            
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-briefcase"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <div class="stat-title">JOBS</div>
+                                    <div class="stat-value" id="stat-jobs">25 jobs</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="server-features" id="feature-container">
+                            <div class="feature">
+                                <i class="fas fa-briefcase"></i>
+                                <span>Custom Jobs</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-car"></i>
+                                <span>Custom Vehicles</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-home"></i>
+                                <span>Property System</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-user-secret"></i>
+                                <span>Criminal Activities</span>
+                            </div>
+                        </div>
+                        
+                        <!-- NEW: SERVER HIGHLIGHTS SECTION -->
+                        <div class="server-highlights">
+                            <div class="highlight-card">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-street-view"></i>
+                                </div>
+                                <div class="highlight-title">Immersive Roleplay</div>
+                                <div class="highlight-text">Experience the most realistic and immersive roleplay with our custom scripts and dedicated community.</div>
+                            </div>
+                            
+                            <div class="highlight-card">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-user-shield"></i>
+                                </div>
+                                <div class="highlight-title">Active Staff</div>
+                                <div class="highlight-text">Our professional staff team is available 24/7 to assist players and ensure a fair gameplay experience.</div>
+                            </div>
+                            
+                            <div class="highlight-card">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-calendar-alt"></i>
+                                </div>
+                                <div class="highlight-title">Regular Events</div>
+                                <div class="highlight-text">Join our weekly community events with unique rewards and unforgettable experiences.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STAFF TEAM TAB - ENHANCED WITH ADDITIONAL CONTENT -->
+                <div class="tab-content no-scroll" id="staff-tab">
+                    <div class="staff-panel">
+                        <div class="info-header">
+                            <h2>STAFF TEAM</h2>
+                            <div class="line-decoration"></div>
+                        </div>
+                        
+                        <div class="staff-grid">
+                            <div class="staff-card">
+                                <div class="staff-avatar">
+                                    <div class="avatar-background" style="background-image: url('img/avatars/admin1.png')"></div>
+                                    <div class="staff-status online"></div>
+                                </div>
+                                <div class="staff-info">
+                                    <div class="staff-name">NaorNC</div>
+                                    <div class="staff-role admin">Server Owner</div>
+                                </div>
+                                <div class="staff-badges">
+                                    <span class="badge founder" title="Founder"><i class="fas fa-crown"></i></span>
+                                    <span class="badge dev" title="Developer"><i class="fas fa-code"></i></span>
+                                </div>
+                            </div>
+                            
+                            <div class="staff-card">
+                                <div class="staff-avatar">
+                                    <div class="avatar-background" style="background-image: url('img/avatars/admin2.png')"></div>
+                                    <div class="staff-status online"></div>
+                                </div>
+                                <div class="staff-info">
+                                    <div class="staff-name">ScriptMaster</div>
+                                    <div class="staff-role developer">Lead Developer</div>
+                                </div>
+                                <div class="staff-badges">
+                                    <span class="badge dev" title="Developer"><i class="fas fa-code"></i></span>
+                                </div>
+                            </div>
+                            
+                            <div class="staff-card">
+                                <div class="staff-avatar">
+                                    <div class="avatar-background" style="background-image: url('img/avatars/admin3.png')"></div>
+                                    <div class="staff-status away"></div>
+                                </div>
+                                <div class="staff-info">
+                                    <div class="staff-name">ModHelper</div>
+                                    <div class="staff-role moderator">Senior Moderator</div>
+                                </div>
+                                <div class="staff-badges">
+                                    <span class="badge support" title="Support Team"><i class="fas fa-headset"></i></span>
+                                </div>
+                            </div>
+                            
+                            <div class="staff-card">
+                                <div class="staff-avatar">
+                                    <div class="avatar-background" style="background-image: url('img/avatars/admin4.png')"></div>
+                                    <div class="staff-status offline"></div>
+                                </div>
+                                <div class="staff-info">
+                                    <div class="staff-name">EventPlanner</div>
+                                    <div class="staff-role helper">Event Coordinator</div>
+                                </div>
+                                <div class="staff-badges">
+                                    <span class="badge events" title="Event Organizer"><i class="fas fa-calendar-check"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- NEW: STAFF POSITIONS SECTION -->
+                        <div class="staff-bottom">
+                            <div class="staff-positions">
+                                <div class="position-item">
+                                    <i class="fas fa-gavel"></i>
+                                    <div class="position-name">Administration</div>
+                                    <div class="position-desc">Server management & oversight</div>
+                                </div>
+                                
+                                <div class="position-item">
+                                    <i class="fas fa-code"></i>
+                                    <div class="position-name">Development</div>
+                                    <div class="position-desc">Custom scripts & features</div>
+                                </div>
+                                
+                                <div class="position-item">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <div class="position-name">Moderation</div>
+                                    <div class="position-desc">Rule enforcement & support</div>
+                                </div>
+                                
+                                <div class="position-item">
+                                    <i class="fas fa-calendar-check"></i>
+                                    <div class="position-name">Events</div>
+                                    <div class="position-desc">Planning & coordination</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TOP DONORS TAB - LUXURIOUS REDESIGN -->
+                <div class="tab-content no-scroll" id="donors-tab">
+                    <div class="donors-panel">
+                        <div class="info-header">
+                            <h2>TOP DONORS</h2>
+                            <div class="line-decoration"></div>
+                        </div>
+                        
+                        <div class="donor-vip">
+                            <div class="spotlight"></div>
+                            <div class="vip-ribbon">Top Supporter</div>
+                            
+                            <div class="donor-elite">
+                                <div class="donor-avatar-container">
+                                    <div class="donor-glow"></div>
+                                    <div class="donor-frame">
+                                        <div class="donor-avatar-lg">
+                                            <div class="avatar-background" style="background-image: url('img/avatars/donor1.png')"></div>
+                                        </div>
+                                    </div>
+                                    <div class="donor-crown">
+                                        <i class="fas fa-crown"></i>
+                                    </div>
+                                </div>
+                                
+                                <div class="donor-info">
+                                    <div class="donor-name-lg">SuperFan</div>
+                                    <div class="donor-title">Diamond Supporter</div>
+                                    <div class="donor-amount-lg">$500 Contributed</div>
+                                    <div class="donor-quote">
+                                        Thanks for creating such an amazing server. The roleplay experience here is unmatched!
+                                    </div>
+                                </div>
+                                
+                                <div class="donor-perks">
+                                    <div class="donor-perk">VIP Access</div>
+                                    <div class="donor-perk">Custom Role</div>
+                                    <div class="donor-perk">Priority Queue</div>
+                                    <div class="donor-perk">Exclusive Vehicles</div>
+                                    <div class="donor-perk">Special Discord Role</div>
+                                </div>
+                                
+                                <div class="donor-badge-lg">
+                                    <i class="fas fa-trophy"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ABOUT SERVER TAB - ENHANCED WITH ADDITIONAL CONTENT -->
+                <div class="tab-content no-scroll" id="about-tab">
+                    <div class="about-panel">
+                        <div class="info-header">
+                            <h2>ABOUT OUR SERVER</h2>
+                            <div class="line-decoration"></div>
+                        </div>
+                        
+                        <div class="about-container">
+                            <div class="about-title">PREMIUM ROLEPLAY EXPERIENCE</div>
+                            <div class="about-description">
+                                NCHub was founded in 2022 with the goal of providing an immersive roleplay experience through custom scripts, exclusive features, and a dedicated community. In addition to its innovative developments, NCHub offers premium script packages like V2, allowing server owners to enhance and customize their gameplay.
+                            </div>
+                            
+                            <div class="about-features">
+                                <div class="about-feature-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                
+                                <div class="about-feature-icon">
+                                    <i class="fas fa-tools"></i>
+                                </div>
+                                
+                                <div class="about-feature-icon">
+                                    <i class="fas fa-calendar-alt"></i>
+                                </div>
+                            </div>
+                            
+                            <!-- NEW: SERVER RULES SECTION -->
+                            <div class="about-bottom">
+                                <div class="about-rules">
+                                    <div class="rule-column">
+                                        <div class="rule-item">
+                                            <i class="fas fa-check"></i>
+                                            <div class="rule-text">Roleplay at all times - Stay in character and respect the RP experience</div>
+                                        </div>
+                                        <div class="rule-item">
+                                            <i class="fas fa-check"></i>
+                                            <div class="rule-text">No RDM (Random Deathmatch) - Don't kill without valid RP reason</div>
+                                        </div>
+                                        <div class="rule-item">
+                                            <i class="fas fa-check"></i>
+                                            <div class="rule-text">No VDM (Vehicle Deathmatch) - Don't use vehicles as weapons</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="rule-column">
+                                        <div class="rule-item">
+                                            <i class="fas fa-check"></i>
+                                            <div class="rule-text">Be respectful to all players - No harassment or discrimination</div>
+                                        </div>
+                                        <div class="rule-item">
+                                            <i class="fas fa-check"></i>
+                                            <div class="rule-text">Follow staff instructions - Staff decisions are final</div>
+                                        </div>
+                                        <div class="rule-item">
+                                            <i class="fas fa-check"></i>
+                                            <div class="rule-text">Report bugs - Don't exploit them for personal gain</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MINI GAME TAB - MATCHING SCREENSHOT EXACTLY -->
+                <div class="tab-content no-scroll" id="minigame-tab">
+                    <div class="minigame-panel">
+                        <div class="info-header">
+                            <h2>SPEED CLICKER</h2>
+                            <div class="line-decoration"></div>
+                        </div>
+                        
+                        <div class="click-game-container">
+                            <div class="click-game-stats">
+                                <div class="click-game-stat click-game-timer">
+                                    <div class="click-game-stat-label">TIME</div>
+                                    <div class="click-game-stat-value" id="click-game-time">10.0</div>
+                                </div>
+                                
+                                <div class="click-game-stat click-game-clicks">
+                                    <div class="click-game-stat-label">CLICKS</div>
+                                    <div class="click-game-stat-value" id="click-game-count">0</div>
+                                </div>
+                                
+                                <div class="click-game-stat click-game-cps">
+                                    <div class="click-game-stat-label">CPS</div>
+                                    <div class="click-game-stat-value" id="click-game-cps">0.0</div>
+                                </div>
+                            </div>
+                            
+                            <div class="click-game-target" id="click-game-target">
+                                <div class="click-game-target-inner">
+                                    <i class="fas fa-mouse-pointer" id="click-game-icon"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="loading-section">
+                <div class="tip-container">
+                    <div class="tip-icon"><i class="fas fa-lightbulb"></i></div>
+                    <div class="tip-content">
+                        <div class="tip-title">DID YOU KNOW?</div>
+                        <div class="tip-text" id="tip-text">Respect other players and follow server rules for a better experience.</div>
+                    </div>
+                </div>
+
+                <div class="progress-container">
+                    <div class="loading-status" id="loading-status">WELCOME TO THE SERVER!</div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="loading-progress" style="width: 100%"></div>
+                    </div>
+                    <div class="loading-percentage" id="loading-percentage">100%</div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="social-links" id="social-links">
+                <!-- Social links will be added dynamically from config -->
+            </div>
+            
+            <div class="audio-controls" id="audio-controls">
+                <div class="audio-info">
+                    <span>Now Playing:</span>
+                    <span id="track-name">Server Soundtrack</span>
+                </div>
+                <div class="audio-buttons">
+                    <button id="audio-toggle"><i class="fas fa-volume-up"></i></button>
+                    <input type="range" id="audio-volume" min="0" max="1" step="0.01" value="1" style="margin-left:12px; width: 90px; vertical-align: middle;">
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Audio preload -->
+    <audio id="background-music" preload="auto" loop autoplay>
+        <source src="music/background.mp3" type="audio/mp3">
+    </audio>
+
+    <script src="js/script.js"></script>
+<script src="js/themeDropdown.js"></script>
+<script>
+const themePresets = {
+  original: {
+    '--primary-color': '#1e88e5',
+    '--accent-color': '#00b0ff',
+    '--dark-bg': '#0a0e19',
+    '--dark-card': '#101729',
+    '--text-color': '#ffffff',
+    '--text-secondary': '#b0c7e8',
+    '--border-color': '#2a3b5c'
+  },
+  default: {
+    '--primary-color': '#1976d2',
+    '--accent-color': '#00bcd4',
+    '--dark-bg': '#232946',
+    '--dark-card': '#393b70',
+    '--text-color': '#f7f7ff',
+    '--text-secondary': '#b8c1ec',
+    '--border-color': '#a393eb'
+  },
+  oceanic: {
+    '--primary-color': '#00b8d9',
+    '--accent-color': '#0052cc',
+    '--dark-bg': '#071e26',
+    '--dark-card': '#0d2b36',
+    '--text-color': '#e0f7fa',
+    '--text-secondary': '#b2ebf2',
+    '--border-color': '#4dd0e1'
+  },
+  sunset: {
+    '--primary-color': '#ff6e40',
+    '--accent-color': '#ffd740',
+    '--dark-bg': '#2f1b0c',
+    '--dark-card': '#5c2a00',
+    '--text-color': '#fff3e0',
+    '--text-secondary': '#ffccbc',
+    '--border-color': '#ffab91'
+  },
+  forest: {
+    '--primary-color': '#43a047',
+    '--accent-color': '#cddc39',
+    '--dark-bg': '#16281b',
+    '--dark-card': '#244c27',
+    '--text-color': '#e8f5e9',
+    '--text-secondary': '#a5d6a7',
+    '--border-color': '#81c784'
+  },
+  midnight: {
+    '--primary-color': '#232b3b',
+    '--accent-color': '#00bcd4',
+    '--dark-bg': '#121212',
+    '--dark-card': '#232323',
+    '--text-color': '#ececec',
+    '--text-secondary': '#bdbdbd',
+    '--border-color': '#424242'
+  },
+  neon: {
+    '--primary-color': '#39ff14',
+    '--accent-color': '#00fff7',
+    '--dark-bg': '#18181a',
+    '--dark-card': '#23233a',
+    '--text-color': '#eafffb',
+    '--text-secondary': '#aaffec',
+    '--border-color': '#00fff7'
+  },
+  cyber: {
+    '--primary-color': '#ff00ea',
+    '--accent-color': '#00ffe7',
+    '--dark-bg': '#15151a',
+    '--dark-card': '#2a193a',
+    '--text-color': '#f8e1ff',
+    '--text-secondary': '#cba6f7',
+    '--border-color': '#ff00ea'
+  },
+  carbon: {
+    '--primary-color': '#444950',
+    '--accent-color': '#00adb5',
+    '--dark-bg': '#23272a',
+    '--dark-card': '#2c2f34',
+    '--text-color': '#f8f8f8',
+    '--text-secondary': '#b0b0b0',
+    '--border-color': '#393e46'
+  },
+  vaporwave: {
+    '--primary-color': '#ff71ce',
+    '--accent-color': '#01cdfe',
+    '--dark-bg': '#232946',
+    '--dark-card': '#393b70',
+    '--text-color': '#f7f7ff',
+    '--text-secondary': '#b8c1ec',
+    '--border-color': '#a393eb'
+  },
+  inferno: {
+    '--primary-color': '#ff1744',
+    '--accent-color': '#ff9100',
+    '--dark-bg': '#1a0909',
+    '--dark-card': '#3a1c1c',
+    '--text-color': '#fff0f0',
+    '--text-secondary': '#ffb3b3',
+    '--border-color': '#ff1744'
+  },
+  dark: {
+    '--primary-color': '#18191a',
+    '--accent-color': '#3a3b3c',
+    '--dark-bg': '#0d0d0d',
+    '--dark-card': '#232323',
+    '--text-color': '#f5f6fa',
+    '--text-secondary': '#b0b3b8',
+    '--border-color': '#242526'
+  },
+  red: {
+    '--primary-color': '#d90429',
+    '--accent-color': '#ff2e63',
+    '--dark-bg': '#1a0909',
+    '--dark-card': '#3a1c1c',
+    '--text-color': '#fff0f0',
+    '--text-secondary': '#ffb3b3',
+    '--border-color': '#d90429'
+  },
+  light: {
+    '--primary-color': '#1976d2',
+    '--accent-color': '#00bcd4',
+    '--dark-bg': '#f3f6fc',
+    '--dark-card': '#ffffff',
+    '--text-color': '#222831',
+    '--text-secondary': '#6d6d6d',
+    '--border-color': '#cfd8dc'
+  }
+};
+
+function applyTheme(theme) {
+  const vars = themePresets[theme] || themePresets.original;
+  for (const key in vars) {
+    document.documentElement.style.setProperty(key, vars[key]);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  const themeSwitcher = document.getElementById('theme-switcher');
+  if (themeSwitcher) {
+    themeSwitcher.addEventListener('change', function() {
+      applyTheme(this.value);
+    });
+  }
+});
+</script>
+// Theme color variables for each theme
+const themePresets = {
+  default: {
+    '--primary-color': 'rgb(30, 136, 229)',
+    '--accent-color': 'rgb(0, 176, 255)',
+    '--dark-bg': 'rgba(10, 14, 25, 0.85)',
+    '--dark-card': 'rgba(16, 23, 41, 0.8)',
+    '--text-color': '#ffffff',
+    '--text-secondary': 'rgba(255,255,255,0.7)',
+    '--border-color': 'rgba(255,255,255,0.1)'
+  },
+  ocean: {
+    '--primary-color': '#0077be',
+    '--accent-color': '#00cfff',
+    '--dark-bg': '#0a2233',
+    '--dark-card': '#14475a',
+    '--text-color': '#e0f7fa',
+    '--text-secondary': '#b2ebf2',
+    '--border-color': '#4dd0e1'
+  },
+  sunset: {
+    '--primary-color': '#ff6e40',
+    '--accent-color': '#ffd740',
+    '--dark-bg': '#3e2723',
+    '--dark-card': '#bf360c',
+    '--text-color': '#fff3e0',
+    '--text-secondary': '#ffccbc',
+    '--border-color': '#ffab91'
+  },
+  forest: {
+    '--primary-color': '#388e3c',
+    '--accent-color': '#cddc39',
+    '--dark-bg': '#263238',
+    '--dark-card': '#33691e',
+    '--text-color': '#e8f5e9',
+    '--text-secondary': '#a5d6a7',
+    '--border-color': '#81c784'
+  },
+  midnight: {
+    '--primary-color': '#212121',
+    '--accent-color': '#00bcd4',
+    '--dark-bg': '#121212',
+    '--dark-card': '#232323',
+    '--text-color': '#ececec',
+    '--text-secondary': '#bdbdbd',
+    '--border-color': '#424242'
+  }
+};
+
+function applyTheme(theme) {
+  const vars = themePresets[theme] || themePresets.default;
+  for (const key in vars) {
+    document.documentElement.style.setProperty(key, vars[key]);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  const themeSwitcher = document.getElementById('theme-switcher');
+  if (themeSwitcher) {
+    themeSwitcher.addEventListener('change', function() {
+      applyTheme(this.value);
+    });
+  }
+});
+</script>
+    <script src="js/click-game.js"></script>
+
+    <thead>
+        <tr>
+            <th>Job</th>
+            <th>Default</th>
+            <th>Bronze 🟤</th>
+            <th>Silver 🥈</th>
+            <th>Gold 🥇</th>
+            <th>Diamond 💎</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>👮‍♂️ <strong>Police Officer</strong></td><td><span class="theme-green">✔</span><br>Patrol</td><td><span class="theme-green">✔</span><br>Bronze Badge</td><td><span class="theme-green">✔</span><br>Silver Badge</td><td><span class="theme-green">✔</span><br>Gold Badge</td><td><span class="theme-green">✔</span><br>Diamond Badge</td></tr>
+        <tr><td>🚑 <strong>Paramedic</strong></td><td><span class="theme-green">✔</span><br>Ambulance</td><td><span class="theme-green">✔</span><br>Bronze Ambulance</td><td><span class="theme-green">✔</span><br>Silver Ambulance</td><td><span class="theme-green">✔</span><br>Gold Ambulance</td><td><span class="theme-green">✔</span><br>Diamond Ambulance</td></tr>
+        <tr><td>🚒 <strong>Firefighter</strong></td><td><span class="theme-green">✔</span><br>Fire Engine</td><td><span class="theme-green">✔</span><br>Bronze Engine</td><td><span class="theme-green">✔</span><br>Silver Engine</td><td><span class="theme-green">✔</span><br>Gold Engine</td><td><span class="theme-green">✔</span><br>Diamond Engine</td></tr>
+        <tr><td>🚕 <strong>Taxi Driver</strong></td><td><span class="theme-green">✔</span><br>Taxi</td><td><span class="theme-green">✔</span><br>Bronze Taxi</td><td><span class="theme-green">✔</span><br>Silver Taxi</td><td><span class="theme-green">✔</span><br>Gold Taxi</td><td><span class="theme-green">✔</span><br>Diamond Taxi</td></tr>
+        <tr><td>👨‍🍳 <strong>Chef</strong></td><td><span class="theme-green">✔</span><br>Restaurant</td><td><span class="theme-green">✔</span><br>Bronze Hat</td><td><span class="theme-green">✔</span><br>Silver Hat</td><td><span class="theme-green">✔</span><br>Gold Hat</td><td><span class="theme-green">✔</span><br>Diamond Hat</td></tr>
+        <tr><td>👩‍🔬 <strong>Scientist</strong></td><td><span class="theme-green">✔</span><br>Lab</td><td><span class="theme-green">✔</span><br>Bronze Flask</td><td><span class="theme-green">✔</span><br>Silver Flask</td><td><span class="theme-green">✔</span><br>Gold Flask</td><td><span class="theme-green">✔</span><br>Diamond Flask</td></tr>
+        <tr><td>👨‍🏫 <strong>Teacher</strong></td><td><span class="theme-green">✔</span><br>School</td><td><span class="theme-green">✔</span><br>Bronze Apple</td><td><span class="theme-green">✔</span><br>Silver Apple</td><td><span class="theme-green">✔</span><br>Gold Apple</td><td><span class="theme-green">✔</span><br>Diamond Apple</td></tr>
+        <tr><td>👨‍🔧 <strong>Mechanic</strong></td><td><span class="theme-green">✔</span><br>Garage</td><td><span class="theme-green">✔</span><br>Bronze Wrench</td><td><span class="theme-green">✔</span><br>Silver Wrench</td><td><span class="theme-green">✔</span><br>Gold Wrench</td><td><span class="theme-green">✔</span><br>Diamond Wrench</td></tr>
+        <tr><td>👨‍🌾 <strong>Farmer</strong></td><td><span class="theme-green">✔</span><br>Farm</td><td><span class="theme-green">✔</span><br>Bronze Tractor</td><td><span class="theme-green">✔</span><br>Silver Tractor</td><td><span class="theme-green">✔</span><br>Gold Tractor</td><td><span class="theme-green">✔</span><br>Diamond Tractor</td></tr>
+        <tr><td>👨‍✈️ <strong>Pilot</strong></td><td><span class="theme-green">✔</span><br>Plane</td><td><span class="theme-green">✔</span><br>Bronze Wings</td><td><span class="theme-green">✔</span><br>Silver Wings</td><td><span class="theme-green">✔</span><br>Gold Wings</td><td><span class="theme-green">✔</span><br>Diamond Wings</td></tr>
+        <tr><td>👨‍💼 <strong>Businessman</strong></td><td><span class="theme-green">✔</span><br>Office</td><td><span class="theme-green">✔</span><br>Bronze Briefcase</td><td><span class="theme-green">✔</span><br>Silver Briefcase</td><td><span class="theme-green">✔</span><br>Gold Briefcase</td><td><span class="theme-green">✔</span><br>Diamond Briefcase</td></tr>
+        <tr><td>👩‍🎨 <strong>Artist</strong></td><td><span class="theme-green">✔</span><br>Studio</td><td><span class="theme-green">✔</span><br>Bronze Brush</td><td><span class="theme-green">✔</span><br>Silver Brush</td><td><span class="theme-green">✔</span><br>Gold Brush</td><td><span class="theme-green">✔</span><br>Diamond Brush</td></tr>
+        <tr><td>👨‍🚒 <strong>Rescue Worker</strong></td><td><span class="theme-green">✔</span><br>Rescue</td><td><span class="theme-green">✔</span><br>Bronze Helmet</td><td><span class="theme-green">✔</span><br>Silver Helmet</td><td><span class="theme-green">✔</span><br>Gold Helmet</td><td><span class="theme-green">✔</span><br>Diamond Helmet</td></tr>
+        <tr><td>👩‍⚖️ <strong>Lawyer</strong></td><td><span class="theme-green">✔</span><br>Court</td><td><span class="theme-green">✔</span><br>Bronze Gavel</td><td><span class="theme-green">✔</span><br>Silver Gavel</td><td><span class="theme-green">✔</span><br>Gold Gavel</td><td><span class="theme-green">✔</span><br>Diamond Gavel</td></tr>
+        <tr><td>🕵️‍♂️ <strong>Detective</strong></td><td><span class="theme-green">✔</span><br>Agency</td><td><span class="theme-green">✔</span><br>Bronze Badge</td><td><span class="theme-green">✔</span><br>Silver Badge</td><td><span class="theme-green">✔</span><br>Gold Badge</td><td><span class="theme-green">✔</span><br>Diamond Badge</td></tr>
+        <tr><td>👩‍🚀 <strong>Astronaut</strong></td><td><span class="theme-green">✔</span><br>Space</td><td><span class="theme-green">✔</span><br>Bronze Helmet</td><td><span class="theme-green">✔</span><br>Silver Helmet</td><td><span class="theme-green">✔</span><br>Gold Helmet</td><td><span class="theme-green">✔</span><br>Diamond Helmet</td></tr>
+        <tr><td>👨‍🎤 <strong>Musician</strong></td><td><span class="theme-green">✔</span><br>Stage</td><td><span class="theme-green">✔</span><br>Bronze Guitar</td><td><span class="theme-green">✔</span><br>Silver Guitar</td><td><span class="theme-green">✔</span><br>Gold Guitar</td><td><span class="theme-green">✔</span><br>Diamond Guitar</td></tr>
+        <tr><td>🦸‍♂️ <strong>Bodyguard</strong></td><td><span class="theme-green">✔</span><br>Security</td><td><span class="theme-green">✔</span><br>Bronze Shield</td><td><span class="theme-green">✔</span><br>Silver Shield</td><td><span class="theme-green">✔</span><br>Gold Shield</td><td><span class="theme-green">✔</span><br>Diamond Shield</td></tr>
+        <tr><td>👩‍💻 <strong>Programmer</strong></td><td><span class="theme-green">✔</span><br>IT</td><td><span class="theme-green">✔</span><br>Bronze Laptop</td><td><span class="theme-green">✔</span><br>Silver Laptop</td><td><span class="theme-green">✔</span><br>Gold Laptop</td><td><span class="theme-green">✔</span><br>Diamond Laptop</td></tr>
+        <tr><td>👨‍🎓 <strong>Student</strong></td><td><span class="theme-green">✔</span><br>College</td><td><span class="theme-green">✔</span><br>Bronze Book</td><td><span class="theme-green">✔</span><br>Silver Book</td><td><span class="theme-green">✔</span><br>Gold Book</td><td><span class="theme-green">✔</span><br>Diamond Book</td></tr>
+        <tr><td>👩‍💼 <strong>Receptionist</strong></td><td><span class="theme-green">✔</span><br>Lobby</td><td><span class="theme-green">✔</span><br>Bronze Phone</td><td><span class="theme-green">✔</span><br>Silver Phone</td><td><span class="theme-green">✔</span><br>Gold Phone</td><td><span class="theme-green">✔</span><br>Diamond Phone</td></tr>
+        <tr><td>👨‍💻 <strong>Web Designer</strong></td><td><span class="theme-green">✔</span><br>Web</td><td><span class="theme-green">✔</span><br>Bronze Mouse</td><td><span class="theme-green">✔</span><br>Silver Mouse</td><td><span class="theme-green">✔</span><br>Gold Mouse</td><td><span class="theme-green">✔</span><br>Diamond Mouse</td></tr>
+        <tr><td>👨‍🚀 <strong>Pilot Instructor</strong></td><td><span class="theme-green">✔</span><br>Flight School</td><td><span class="theme-green">✔</span><br>Bronze Wings</td><td><span class="theme-green">✔</span><br>Silver Wings</td><td><span class="theme-green">✔</span><br>Gold Wings</td><td><span class="theme-green">✔</span><br>Diamond Wings</td></tr>
+        <tr><td>👨‍⚕️ <strong>Doctor</strong></td><td><span class="theme-green">✔</span><br>Clinic</td><td><span class="theme-green">✔</span><br>Bronze Stethoscope</td><td><span class="theme-green">✔</span><br>Silver Stethoscope</td><td><span class="theme-green">✔</span><br>Gold Stethoscope</td><td><span class="theme-green">✔</span><br>Diamond Stethoscope</td></tr>
+        <tr><td>👩‍🌾 <strong>Gardener</strong></td><td><span class="theme-green">✔</span><br>Garden</td><td><span class="theme-green">✔</span><br>Bronze Flower</td><td><span class="theme-green">✔</span><br>Silver Flower</td><td><span class="theme-green">✔</span><br>Gold Flower</td><td><span class="theme-green">✔</span><br>Diamond Flower</td></tr>
+        <tr><td>👨‍🎨 <strong>Painter</strong></td><td><span class="theme-green">✔</span><br>Gallery</td><td><span class="theme-green">✔</span><br>Bronze Palette</td><td><span class="theme-green">✔</span><br>Silver Palette</td><td><span class="theme-green">✔</span><br>Gold Palette</td><td><span class="theme-green">✔</span><br>Diamond Palette</td></tr>
+        <tr><td>👨‍🔬 <strong>Chemist</strong></td><td><span class="theme-green">✔</span><br>Lab</td><td><span class="theme-green">✔</span><br>Bronze Beaker</td><td><span class="theme-green">✔</span><br>Silver Beaker</td><td><span class="theme-green">✔</span><br>Gold Beaker</td><td><span class="theme-green">✔</span><br>Diamond Beaker</td></tr>
+        <tr><td>👩‍🍳 <strong>Baker</strong></td><td><span class="theme-green">✔</span><br>Bakery</td><td><span class="theme-green">✔</span><br>Bronze Bread</td><td><span class="theme-green">✔</span><br>Silver Bread</td><td><span class="theme-green">✔</span><br>Gold Bread</td><td><span class="theme-green">✔</span><br>Diamond Bread</td></tr>
+        <tr><td>👨‍🔧 <strong>Electrician</strong></td><td><span class="theme-green">✔</span><br>Workshop</td><td><span class="theme-green">✔</span><br>Bronze Plug</td><td><span class="theme-green">✔</span><br>Silver Plug</td><td><span class="theme-green">✔</span><br>Gold Plug</td><td><span class="theme-green">✔</span><br>Diamond Plug</td></tr>
+        <tr><td>👩‍🚒 <strong>Dispatcher</strong></td><td><span class="theme-green">✔</span><br>Station</td><td><span class="theme-green">✔</span><br>Bronze Radio</td><td><span class="theme-green">✔</span><br>Silver Radio</td><td><span class="theme-green">✔</span><br>Gold Radio</td><td><span class="theme-green">✔</span><br>Diamond Radio</td></tr>
+        <tr><td>👨‍✈️ <strong>Flight Attendant</strong></td><td><span class="theme-green">✔</span><br>Airline</td><td><span class="theme-green">✔</span><br>Bronze Wings</td><td><span class="theme-green">✔</span><br>Silver Wings</td><td><span class="theme-green">✔</span><br>Gold Wings</td><td><span class="theme-green">✔</span><br>Diamond Wings</td></tr>
+        <tr><td>👩‍🎤 <strong>Singer</strong></td><td><span class="theme-green">✔</span><br>Concert</td><td><span class="theme-green">✔</span><br>Bronze Mic</td><td><span class="theme-green">✔</span><br>Silver Mic</td><td><span class="theme-green">✔</span><br>Gold Mic</td><td><span class="theme-green">✔</span><br>Diamond Mic</td></tr>
+        <tr><td>👨‍🎤 <strong>DJ</strong></td><td><span class="theme-green">✔</span><br>Club</td><td><span class="theme-green">✔</span><br>Bronze Record</td><td><span class="theme-green">✔</span><br>Silver Record</td><td><span class="theme-green">✔</span><br>Gold Record</td><td><span class="theme-green">✔</span><br>Diamond Record</td></tr>
+        <tr><td>👨‍🚒 <strong>EMT</strong></td><td><span class="theme-green">✔</span><br>Ambulance</td><td><span class="theme-green">✔</span><br>Bronze Kit</td><td><span class="theme-green">✔</span><br>Silver Kit</td><td><span class="theme-green">✔</span><br>Gold Kit</td><td><span class="theme-green">✔</span><br>Diamond Kit</td></tr>
+        <tr><td>👨‍🌾 <strong>Winemaker</strong></td><td><span class="theme-green">✔</span><br>Winery</td><td><span class="theme-green">✔</span><br>Bronze Grape</td><td><span class="theme-green">✔</span><br>Silver Grape</td><td><span class="theme-green">✔</span><br>Gold Grape</td><td><span class="theme-green">✔</span><br>Diamond Grape</td></tr>
+        <tr><td>👨‍💼 <strong>Manager</strong></td><td><span class="theme-green">✔</span><br>Office</td><td><span class="theme-green">✔</span><br>Bronze Folder</td><td><span class="theme-green">✔</span><br>Silver Folder</td><td><span class="theme-green">✔</span><br>Gold Folder</td><td><span class="theme-green">✔</span><br>Diamond Folder</td></tr>
+        <tr><td>👩‍🏫 <strong>Professor</strong></td><td><span class="theme-green">✔</span><br>University</td><td><span class="theme-green">✔</span><br>Bronze Chalk</td><td><span class="theme-green">✔</span><br>Silver Chalk</td><td><span class="theme-green">✔</span><br>Gold Chalk</td><td><span class="theme-green">✔</span><br>Diamond Chalk</td></tr>
+        <tr><td>👨‍💻 <strong>IT Specialist</strong></td><td><span class="theme-green">✔</span><br>IT</td><td><span class="theme-green">✔</span><br>Bronze Server</td><td><span class="theme-green">✔</span><br>Silver Server</td><td><span class="theme-green">✔</span><br>Gold Server</td><td><span class="theme-green">✔</span><br>Diamond Server</td></tr>
+        <tr><td>👨‍🔬 <strong>Biologist</strong></td><td><span class="theme-green">✔</span><br>Lab</td><td><span class="theme-green">✔</span><br>Bronze Leaf</td><td><span class="theme-green">✔</span><br>Silver Leaf</td><td><span class="theme-green">✔</span><br>Gold Leaf</td><td><span class="theme-green">✔</span><br>Diamond Leaf</td></tr>
+        <tr><td>👩‍🍳 <strong>Pastry Chef</strong></td><td><span class="theme-green">✔</span><br>Bakery</td><td><span class="theme-green">✔</span><br>Bronze Cake</td><td><span class="theme-green">✔</span><br>Silver Cake</td><td><span class="theme-green">✔</span><br>Gold Cake</td><td><span class="theme-green">✔</span><br>Diamond Cake</td></tr>
+        <tr><td>👨‍🔧 <strong>Plumber</strong></td><td><span class="theme-green">✔</span><br>Pipes</td><td><span class="theme-green">✔</span><br>Bronze Pipe</td><td><span class="theme-green">✔</span><br>Silver Pipe</td><td><span class="theme-green">✔</span><br>Gold Pipe</td><td><span class="theme-green">✔</span><br>Diamond Pipe</td></tr>
+        <tr><td>👩‍🎨 <strong>Designer</strong></td><td><span class="theme-green">✔</span><br>Studio</td><td><span class="theme-green">✔</span><br>Bronze Pencil</td><td><span class="theme-green">✔</span><br>Silver Pencil</td><td><span class="theme-green">✔</span><br>Gold Pencil</td><td><span class="theme-green">✔</span><br>Diamond Pencil</td></tr>
+        <tr><td>👨‍🌾 <strong>Rancher</strong></td><td><span class="theme-green">✔</span><br>Ranch</td><td><span class="theme-green">✔</span><br>Bronze Cow</td><td><span class="theme-green">✔</span><br>Silver Cow</td><td><span class="theme-green">✔</span><br>Gold Cow</td><td><span class="theme-green">✔</span><br>Diamond Cow</td></tr>
+        <tr><td>👩‍🔬 <strong>Pharmacist</strong></td><td><span class="theme-green">✔</span><br>Pharmacy</td><td><span class="theme-green">✔</span><br>Bronze Pill</td><td><span class="theme-green">✔</span><br>Silver Pill</td><td><span class="theme-green">✔</span><br>Gold Pill</td><td><span class="theme-green">✔</span><br>Diamond Pill</td></tr>
+        <tr><td>👨‍💼 <strong>Accountant</strong></td><td><span class="theme-green">✔</span><br>Office</td><td><span class="theme-green">✔</span><br>Bronze Calculator</td><td><span class="theme-green">✔</span><br>Silver Calculator</td><td><span class="theme-green">✔</span><br>Gold Calculator</td><td><span class="theme-green">✔</span><br>Diamond Calculator</td></tr>
+        <tr><td>👩‍🏫 <strong>Instructor</strong></td><td><span class="theme-green">✔</span><br>Classroom</td><td><span class="theme-green">✔</span><br>Bronze Board</td><td><span class="theme-green">✔</span><br>Silver Board</td><td><span class="theme-green">✔</span><br>Gold Board</td><td><span class="theme-green">✔</span><br>Diamond Board</td></tr>
+        <tr><td>👨‍💻 <strong>Engineer</strong></td><td><span class="theme-green">✔</span><br>Workshop</td><td><span class="theme-green">✔</span><br>Bronze Gear</td><td><span class="theme-green">✔</span><br>Silver Gear</td><td><span class="theme-green">✔</span><br>Gold Gear</td><td><span class="theme-green">✔</span><br>Diamond Gear</td></tr>
+        <tr><td>👨‍🔬 <strong>Geologist</strong></td><td><span class="theme-green">✔</span><br>Mine</td><td><span class="theme-green">✔</span><br>Bronze Rock</td><td><span class="theme-green">✔</span><br>Silver Rock</td><td><span class="theme-green">✔</span><br>Gold Rock</td><td><span class="theme-green">✔</span><br>Diamond Rock</td></tr>
+        <tr><td>👩‍🍳 <strong>Barista</strong></td><td><span class="theme-green">✔</span><br>Cafe</td><td><span class="theme-green">✔</span><br>Bronze Cup</td><td><span class="theme-green">✔</span><br>Silver Cup</td><td><span class="theme-green">✔</span><br>Gold Cup</td><td><span class="theme-green">✔</span><br>Diamond Cup</td></tr>
+        <tr><td>👨‍🔧 <strong>Technician</strong></td><td><span class="theme-green">✔</span><br>Lab</td><td><span class="theme-green">✔</span><br>Bronze Chip</td><td><span class="theme-green">✔</span><br>Silver Chip</td><td><span class="theme-green">✔</span><br>Gold Chip</td><td><span class="theme-green">✔</span><br>Diamond Chip</td></tr>
+        <tr><td>👩‍🎨 <strong>Animator</strong></td><td><span class="theme-green">✔</span><br>Studio</td><td><span class="theme-green">✔</span><br>Bronze Film</td><td><span class="theme-green">✔</span><br>Silver Film</td><td><span class="theme-green">✔</span><br>Gold Film</td><td><span class="theme-green">✔</span><br>Diamond Film</td></tr>
+        <tr><td>👨‍🌾 <strong>Florist</strong></td><td><span class="theme-green">✔</span><br>Shop</td><td><span class="theme-green">✔</span><br>Bronze Rose</td><td><span class="theme-green">✔</span><br>Silver Rose</td><td><span class="theme-green">✔</span><br>Gold Rose</td><td><span class="theme-green">✔</span><br>Diamond Rose</td></tr>
+        <tr><td>👩‍🔬 <strong>Researcher</strong></td><td><span class="theme-green">✔</span><br>Lab</td><td><span class="theme-green">✔</span><br>Bronze Microscope</td><td><span class="theme-green">✔</span><br>Silver Microscope</td><td><span class="theme-green">✔</span><br>Gold Microscope</td><td><span class="theme-green">✔</span><br>Diamond Microscope</td></tr>
+        <tr><td>👨‍💼 <strong>Consultant</strong></td><td><span class="theme-green">✔</span><br>Office</td><td><span class="theme-green">✔</span><br>Bronze Chart</td><td><span class="theme-green">✔</span><br>Silver Chart</td><td><span class="theme-green">✔</span><br>Gold Chart</td><td><span class="theme-green">✔</span><br>Diamond Chart</td></tr>
+        <tr><td>👩‍🏫 <strong>Counselor</strong></td><td><span class="theme-green">✔</span><br>Clinic</td><td><span class="theme-green">✔</span><br>Bronze Heart</td><td><span class="theme-green">✔</span><br>Silver Heart</td><td><span class="theme-green">✔</span><br>Gold Heart</td><td><span class="theme-green">✔</span><br>Diamond Heart</td></tr>
+        <tr><td>👨‍💻 <strong>Copywriter</strong></td><td><span class="theme-green">✔</span><br>Agency</td><td><span class="theme-green">✔</span><br>Bronze Pen</td><td><span class="theme-green">✔</span><br>Silver Pen</td><td><span class="theme-green">✔</span><br>Gold Pen</td><td><span class="theme-green">✔</span><br>Diamond Pen</td></tr>
+        <tr><td>👨‍🔬 <strong>Physicist</strong></td><td><span class="theme-green">✔</span><br>Lab</td><td><span class="theme-green">✔</span><br>Bronze Atom</td><td><span class="theme-green">✔</span><br>Silver Atom</td><td><span class="theme-green">✔</span><br>Gold Atom</td><td><span class="theme-green">✔</span><br>Diamond Atom</td></tr>
+        <tr><td>👩‍🍳 <strong>Chef de Partie</strong></td><td><span class="theme-green">✔</span><br>Kitchen</td><td><span class="theme-green">✔</span><br>Bronze Pan</td><td><span class="theme-green">✔</span><br>Silver Pan</td><td><span class="theme-green">✔</span><br>Gold Pan</td><td><span class="theme-green">✔</span><br>Diamond Pan</td></tr>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+        </tr>
+        <tr>
+            <td>👷 <strong>Placeholder Job 2</strong></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+        </tr>
+        <tr>
+            <td>👩‍⚕️ <strong>Placeholder Job 3</strong></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+        </tr>
+        <tr>
+            <td>👨‍🍳 <strong>Placeholder Job 4</strong></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+        </tr>
+        <tr>
+            <td>👨‍🏫 <strong>Placeholder Job 5</strong></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+        </tr>
+        <tr>
+            <td>👨‍🔧 <strong>Placeholder Job 6</strong></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+        </tr>
+        <tr>
+            <td>👩‍🚒 <strong>Placeholder Job 7</strong></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+        </tr>
+        <tr>
+            <td>👩‍✈️ <strong>Placeholder Job 8</strong></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+        </tr>
+        <tr>
+            <td>👨‍🌾 <strong>Placeholder Job 9</strong></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+        </tr>
+        <tr>
+            <td>👩‍🔬 <strong>Placeholder Job 10</strong></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+        </tr>
+        <!-- ...repeat with more emojis and names up to 50 rows... -->
+        <!-- For brevity, the rest will use 🧑‍💼 emoji -->
+        <tr>
+            <td>🧑‍💼 <strong>Placeholder Job 11</strong></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+        </tr>
+        <!-- ...repeat for jobs 12-50... -->
+        <tr>
+            <td>🧑‍💼 <strong>Placeholder Job 50</strong></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+        </tr>
+</tbody>
+            <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$1000/hr</span><br><span class="perk theme-green">None</span></div></td>
+            <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$1100/hr</span><br><span class="perk theme-green">+10% pay</span></div></td>
+            <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$1150/hr</span><br><span class="perk theme-green">+15% pay</span></div></td>
+            <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$1200/hr</span><br><span class="perk theme-green">+20% pay</span></div></td>
+            <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$1300/hr</span><br><span class="perk theme-green">+30% pay</span></div></td>
+        </tr>
+        <tr>
+            <td>🔧 <strong>Mechanic</strong></td>
+            <td><div class="job-access no"><span class="coming-soon theme-yellow">Coming Soon</span></div></td>
+            <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$1500/hr</span><br><span class="perk theme-green">Bronze car skin</span></div></td>
+            <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$1650/hr</span><br><span class="perk theme-green">Silver skin, +15% pay</span></div></td>
+            <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$1800/hr</span><br><span class="perk theme-green">Gold skin, +20% pay</span></div></td>
+            <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$2000/hr</span><br><span class="perk theme-green">Diamond skin, +30% pay</span></div></td>
+        </tr>
+        <tr>
+            <td><strong>Taxi Driver</strong></td>
+            <td><div class="job-access no"><span class="coming-soon theme-yellow">Coming Soon</span></div></td>
+            <td><div class="job-access no"><span class="coming-soon theme-yellow">Coming Soon</span></div></td>
+            <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$1800/hr</span><br><span class="perk theme-green">Priority support</span></div></td>
+            <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$2000/hr</span><br><span class="perk theme-green">Exclusive events</span></div></td>
+            <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$2200/hr</span><br><span class="perk theme-green">Diamond skin, All lower perks</span></div></td>
+        </tr>
+        <tr>
+            <td><strong>Police Officer</strong></td>
+            <td><div class="job-access no"><span class="coming-soon theme-yellow">Coming Soon</span></div></td>
+            <td><div class="job-access no"><span class="coming-soon theme-yellow">Coming Soon</span></div></td>
+            <td><div class="job-access no"><span class="coming-soon theme-yellow">Coming Soon</span></div></td>
+            <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$2200/hr</span><br><span class="perk theme-green">Gold skin, /policecar</span></div></td>
+            <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$2500/hr</span><br><span class="perk theme-green">Diamond skin, All lower perks</span></div></td>
+        </tr>
+        <tr>
+            <td><strong>VIP Pilot</strong></td>
+            <td><div class="job-access no"><span class="coming-soon theme-yellow">Coming Soon</span></div></td>
+            <td><div class="job-access no"><span class="coming-soon theme-yellow">Coming Soon</span></div></td>
+            <td><div class="job-access no"><span class="coming-soon theme-yellow">Coming Soon</span></div></td>
+            <td><div class="job-access no"><span class="coming-soon theme-yellow">Coming Soon</span></div></td>
+            <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$3000/hr</span><br><span class="perk theme-green">Custom tag, All lower perks</span></div></td>
+        </tr>
+        <tr>
+            <td><strong>EMS</strong></td>
+            <td><div class="job-access no"><span class="coming-soon theme-yellow">Coming Soon</span></div></td>
+            <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$1400/hr</span><br><span class="perk theme-green">Bronze ambulance skin</span></div></td>
+            <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$1600/hr</span><br><span class="perk theme-green">Silver ambulance, +15% pay</span></div></td>
+            <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$1800/hr</span><br><span class="perk theme-green">Gold ambulance, +20% pay</span></div></td>
+            <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$2000/hr</span><br><span class="perk theme-green">Diamond ambulance, +30% pay</span></div></td>
+        </tr>
+        <tr>
+            <td><strong>Lawyer</strong></td>
+            <td><div class="job-access no"><span class="coming-soon theme-yellow">Coming Soon</span></div></td>
+            <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$1700/hr</span><br><span class="perk theme-green">Legal perks</span></div></td>
+            <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$2000/hr</span><br><span class="perk theme-green">Priority case handling</span></div></td>
+            <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$2200/hr</span><br><span class="perk theme-green">Gold badge, +20% pay</span></div></td>
+            <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$2500/hr</span><br><span class="perk theme-green">Diamond badge, +30% pay</span></div></td>
+        </tr>
+        <tr>
+            <td><strong>Real Estate Agent</strong></td>
+            <td><div class="job-access no"><span class="coming-soon theme-yellow">Coming Soon</span></div></td>
+            <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$1600/hr</span><br><span class="perk theme-green">Bronze house sales</span></div></td>
+            <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$1900/hr</span><br><span class="perk theme-green">Silver house sales, +15% pay</span></div></td>
+            <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$2100/hr</span><br><span class="perk theme-green">Gold house sales, +20% pay</span></div></td>
+            <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$2500/hr</span><br><span class="perk theme-green">Diamond house sales, +30% pay</span></div></td>
+        </tr>
+        <tr>
+            <td><strong>Gang Leader</strong></td>
+            <td><div class="job-access no"><span class="coming-soon theme-yellow">Coming Soon</span></div></td>
+            <td><div class="job-access no"><span class="coming-soon theme-yellow">Coming Soon</span></div></td>
+            <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$2500/hr</span><br><span class="perk theme-green">Silver weapon skin</span></div></td>
+            <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$3000/hr</span><br><span class="perk theme-green">Gold weapon skin, /gangcar</span></div></td>
+            <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$3500/hr</span><br><span class="perk theme-green">Diamond weapon skin, Custom gang HQ</span></div></td>
+        </tr>
+        <tr>
+            <td><strong>Business Owner</strong></td>
+            <td><div class="job-access no"><span class="coming-soon theme-yellow">Coming Soon</span></div></td>
+            <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$2000/hr</span><br><span class="perk theme-green">Bronze business</span></div></td>
+            <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$2300/hr</span><br><span class="perk theme-green">Silver business, +15% pay</span></div></td>
+            <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$2600/hr</span><br><span class="perk theme-green">Gold business, +20% pay</span></div></td>
+            <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$3000/hr</span><br><span class="perk theme-green">Diamond business, Custom logo</span></div></td>
+        </tr>
+        <tr>
+            <td><strong>Hitman</strong></td>
+            <td><div class="job-access no"><span class="coming-soon theme-yellow">Coming Soon</span></div></td>
+            <td><div class="job-access no"><span class="coming-soon theme-yellow">Coming Soon</span></div></td>
+            <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$4000/hr</span><br><span class="perk theme-green">Silver weapon, Priority contracts</span></div></td>
+            <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$5000/hr</span><br><span class="perk theme-green">Gold weapon, /hitman</span></div></td>
+            <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$6000/hr</span><br><span class="perk theme-green">Diamond weapon, Custom mask</span></div></td>
+        </tr>
+    </tbody>
+</table>
+            </div>
+        </div>
+    </div>
+
+
+    <thead>
+        <tr>
+            <th>Vehicle</th>
+            <th>Default</th>
+            <th>Bronze 🟤</th>
+            <th>Silver 🥈</th>
+            <th>Gold 🥇</th>
+            <th>Diamond 💎</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>👮‍♂️ <strong>Police Officer</strong></td><td><span class="theme-green">✔</span><br>Patrol</td><td><span class="theme-green">✔</span><br>Bronze Badge</td><td><span class="theme-green">✔</span><br>Silver Badge</td><td><span class="theme-green">✔</span><br>Gold Badge</td><td><span class="theme-green">✔</span><br>Diamond Badge</td></tr>
+        <tr><td>🚑 <strong>Paramedic</strong></td><td><span class="theme-green">✔</span><br>Ambulance</td><td><span class="theme-green">✔</span><br>Bronze Ambulance</td><td><span class="theme-green">✔</span><br>Silver Ambulance</td><td><span class="theme-green">✔</span><br>Gold Ambulance</td><td><span class="theme-green">✔</span><br>Diamond Ambulance</td></tr>
+        <tr><td>🚒 <strong>Firefighter</strong></td><td><span class="theme-green">✔</span><br>Fire Engine</td><td><span class="theme-green">✔</span><br>Bronze Engine</td><td><span class="theme-green">✔</span><br>Silver Engine</td><td><span class="theme-green">✔</span><br>Gold Engine</td><td><span class="theme-green">✔</span><br>Diamond Engine</td></tr>
+        <tr><td>🚕 <strong>Taxi Driver</strong></td><td><span class="theme-green">✔</span><br>Taxi</td><td><span class="theme-green">✔</span><br>Bronze Taxi</td><td><span class="theme-green">✔</span><br>Silver Taxi</td><td><span class="theme-green">✔</span><br>Gold Taxi</td><td><span class="theme-green">✔</span><br>Diamond Taxi</td></tr>
+        <tr><td>👨‍🍳 <strong>Chef</strong></td><td><span class="theme-green">✔</span><br>Restaurant</td><td><span class="theme-green">✔</span><br>Bronze Hat</td><td><span class="theme-green">✔</span><br>Silver Hat</td><td><span class="theme-green">✔</span><br>Gold Hat</td><td><span class="theme-green">✔</span><br>Diamond Hat</td></tr>
+        <tr><td>👩‍🔬 <strong>Scientist</strong></td><td><span class="theme-green">✔</span><br>Lab</td><td><span class="theme-green">✔</span><br>Bronze Flask</td><td><span class="theme-green">✔</span><br>Silver Flask</td><td><span class="theme-green">✔</span><br>Gold Flask</td><td><span class="theme-green">✔</span><br>Diamond Flask</td></tr>
+        <tr><td>👨‍🏫 <strong>Teacher</strong></td><td><span class="theme-green">✔</span><br>School</td><td><span class="theme-green">✔</span><br>Bronze Apple</td><td><span class="theme-green">✔</span><br>Silver Apple</td><td><span class="theme-green">✔</span><br>Gold Apple</td><td><span class="theme-green">✔</span><br>Diamond Apple</td></tr>
+        <tr><td>👨‍🔧 <strong>Mechanic</strong></td><td><span class="theme-green">✔</span><br>Garage</td><td><span class="theme-green">✔</span><br>Bronze Wrench</td><td><span class="theme-green">✔</span><br>Silver Wrench</td><td><span class="theme-green">✔</span><br>Gold Wrench</td><td><span class="theme-green">✔</span><br>Diamond Wrench</td></tr>
+        <tr><td>👨‍🌾 <strong>Farmer</strong></td><td><span class="theme-green">✔</span><br>Farm</td><td><span class="theme-green">✔</span><br>Bronze Tractor</td><td><span class="theme-green">✔</span><br>Silver Tractor</td><td><span class="theme-green">✔</span><br>Gold Tractor</td><td><span class="theme-green">✔</span><br>Diamond Tractor</td></tr>
+        <tr><td>👨‍✈️ <strong>Pilot</strong></td><td><span class="theme-green">✔</span><br>Plane</td><td><span class="theme-green">✔</span><br>Bronze Wings</td><td><span class="theme-green">✔</span><br>Silver Wings</td><td><span class="theme-green">✔</span><br>Gold Wings</td><td><span class="theme-green">✔</span><br>Diamond Wings</td></tr>
+        <tr><td>👨‍💼 <strong>Businessman</strong></td><td><span class="theme-green">✔</span><br>Office</td><td><span class="theme-green">✔</span><br>Bronze Briefcase</td><td><span class="theme-green">✔</span><br>Silver Briefcase</td><td><span class="theme-green">✔</span><br>Gold Briefcase</td><td><span class="theme-green">✔</span><br>Diamond Briefcase</td></tr>
+        <tr><td>👩‍🎨 <strong>Artist</strong></td><td><span class="theme-green">✔</span><br>Studio</td><td><span class="theme-green">✔</span><br>Bronze Brush</td><td><span class="theme-green">✔</span><br>Silver Brush</td><td><span class="theme-green">✔</span><br>Gold Brush</td><td><span class="theme-green">✔</span><br>Diamond Brush</td></tr>
+        <tr><td>👨‍🚒 <strong>Rescue Worker</strong></td><td><span class="theme-green">✔</span><br>Rescue</td><td><span class="theme-green">✔</span><br>Bronze Helmet</td><td><span class="theme-green">✔</span><br>Silver Helmet</td><td><span class="theme-green">✔</span><br>Gold Helmet</td><td><span class="theme-green">✔</span><br>Diamond Helmet</td></tr>
+        <tr><td>👩‍⚖️ <strong>Lawyer</strong></td><td><span class="theme-green">✔</span><br>Court</td><td><span class="theme-green">✔</span><br>Bronze Gavel</td><td><span class="theme-green">✔</span><br>Silver Gavel</td><td><span class="theme-green">✔</span><br>Gold Gavel</td><td><span class="theme-green">✔</span><br>Diamond Gavel</td></tr>
+        <tr><td>🕵️‍♂️ <strong>Detective</strong></td><td><span class="theme-green">✔</span><br>Agency</td><td><span class="theme-green">✔</span><br>Bronze Badge</td><td><span class="theme-green">✔</span><br>Silver Badge</td><td><span class="theme-green">✔</span><br>Gold Badge</td><td><span class="theme-green">✔</span><br>Diamond Badge</td></tr>
+        <tr><td>👩‍🚀 <strong>Astronaut</strong></td><td><span class="theme-green">✔</span><br>Space</td><td><span class="theme-green">✔</span><br>Bronze Helmet</td><td><span class="theme-green">✔</span><br>Silver Helmet</td><td><span class="theme-green">✔</span><br>Gold Helmet</td><td><span class="theme-green">✔</span><br>Diamond Helmet</td></tr>
+        <tr><td>👨‍🎤 <strong>Musician</strong></td><td><span class="theme-green">✔</span><br>Stage</td><td><span class="theme-green">✔</span><br>Bronze Guitar</td><td><span class="theme-green">✔</span><br>Silver Guitar</td><td><span class="theme-green">✔</span><br>Gold Guitar</td><td><span class="theme-green">✔</span><br>Diamond Guitar</td></tr>
+        <tr><td>🦸‍♂️ <strong>Bodyguard</strong></td><td><span class="theme-green">✔</span><br>Security</td><td><span class="theme-green">✔</span><br>Bronze Shield</td><td><span class="theme-green">✔</span><br>Silver Shield</td><td><span class="theme-green">✔</span><br>Gold Shield</td><td><span class="theme-green">✔</span><br>Diamond Shield</td></tr>
+        <tr><td>👩‍💻 <strong>Programmer</strong></td><td><span class="theme-green">✔</span><br>IT</td><td><span class="theme-green">✔</span><br>Bronze Laptop</td><td><span class="theme-green">✔</span><br>Silver Laptop</td><td><span class="theme-green">✔</span><br>Gold Laptop</td><td><span class="theme-green">✔</span><br>Diamond Laptop</td></tr>
+        <tr><td>👨‍🎓 <strong>Student</strong></td><td><span class="theme-green">✔</span><br>College</td><td><span class="theme-green">✔</span><br>Bronze Book</td><td><span class="theme-green">✔</span><br>Silver Book</td><td><span class="theme-green">✔</span><br>Gold Book</td><td><span class="theme-green">✔</span><br>Diamond Book</td></tr>
+        <tr><td>👩‍💼 <strong>Receptionist</strong></td><td><span class="theme-green">✔</span><br>Lobby</td><td><span class="theme-green">✔</span><br>Bronze Phone</td><td><span class="theme-green">✔</span><br>Silver Phone</td><td><span class="theme-green">✔</span><br>Gold Phone</td><td><span class="theme-green">✔</span><br>Diamond Phone</td></tr>
+        <tr><td>👨‍💻 <strong>Web Designer</strong></td><td><span class="theme-green">✔</span><br>Web</td><td><span class="theme-green">✔</span><br>Bronze Mouse</td><td><span class="theme-green">✔</span><br>Silver Mouse</td><td><span class="theme-green">✔</span><br>Gold Mouse</td><td><span class="theme-green">✔</span><br>Diamond Mouse</td></tr>
+        <tr><td>👨‍🚀 <strong>Pilot Instructor</strong></td><td><span class="theme-green">✔</span><br>Flight School</td><td><span class="theme-green">✔</span><br>Bronze Wings</td><td><span class="theme-green">✔</span><br>Silver Wings</td><td><span class="theme-green">✔</span><br>Gold Wings</td><td><span class="theme-green">✔</span><br>Diamond Wings</td></tr>
+        <tr><td>👨‍⚕️ <strong>Doctor</strong></td><td><span class="theme-green">✔</span><br>Clinic</td><td><span class="theme-green">✔</span><br>Bronze Stethoscope</td><td><span class="theme-green">✔</span><br>Silver Stethoscope</td><td><span class="theme-green">✔</span><br>Gold Stethoscope</td><td><span class="theme-green">✔</span><br>Diamond Stethoscope</td></tr>
+        <tr><td>👩‍🌾 <strong>Gardener</strong></td><td><span class="theme-green">✔</span><br>Garden</td><td><span class="theme-green">✔</span><br>Bronze Flower</td><td><span class="theme-green">✔</span><br>Silver Flower</td><td><span class="theme-green">✔</span><br>Gold Flower</td><td><span class="theme-green">✔</span><br>Diamond Flower</td></tr>
+        <tr><td>👨‍🎨 <strong>Painter</strong></td><td><span class="theme-green">✔</span><br>Gallery</td><td><span class="theme-green">✔</span><br>Bronze Palette</td><td><span class="theme-green">✔</span><br>Silver Palette</td><td><span class="theme-green">✔</span><br>Gold Palette</td><td><span class="theme-green">✔</span><br>Diamond Palette</td></tr>
+        <tr><td>👨‍🔬 <strong>Chemist</strong></td><td><span class="theme-green">✔</span><br>Lab</td><td><span class="theme-green">✔</span><br>Bronze Beaker</td><td><span class="theme-green">✔</span><br>Silver Beaker</td><td><span class="theme-green">✔</span><br>Gold Beaker</td><td><span class="theme-green">✔</span><br>Diamond Beaker</td></tr>
+        <tr><td>👩‍🍳 <strong>Baker</strong></td><td><span class="theme-green">✔</span><br>Bakery</td><td><span class="theme-green">✔</span><br>Bronze Bread</td><td><span class="theme-green">✔</span><br>Silver Bread</td><td><span class="theme-green">✔</span><br>Gold Bread</td><td><span class="theme-green">✔</span><br>Diamond Bread</td></tr>
+        <tr><td>👨‍🔧 <strong>Electrician</strong></td><td><span class="theme-green">✔</span><br>Workshop</td><td><span class="theme-green">✔</span><br>Bronze Plug</td><td><span class="theme-green">✔</span><br>Silver Plug</td><td><span class="theme-green">✔</span><br>Gold Plug</td><td><span class="theme-green">✔</span><br>Diamond Plug</td></tr>
+        <tr><td>👩‍🚒 <strong>Dispatcher</strong></td><td><span class="theme-green">✔</span><br>Station</td><td><span class="theme-green">✔</span><br>Bronze Radio</td><td><span class="theme-green">✔</span><br>Silver Radio</td><td><span class="theme-green">✔</span><br>Gold Radio</td><td><span class="theme-green">✔</span><br>Diamond Radio</td></tr>
+        <tr><td>👨‍✈️ <strong>Flight Attendant</strong></td><td><span class="theme-green">✔</span><br>Airline</td><td><span class="theme-green">✔</span><br>Bronze Wings</td><td><span class="theme-green">✔</span><br>Silver Wings</td><td><span class="theme-green">✔</span><br>Gold Wings</td><td><span class="theme-green">✔</span><br>Diamond Wings</td></tr>
+        <tr><td>👩‍🎤 <strong>Singer</strong></td><td><span class="theme-green">✔</span><br>Concert</td><td><span class="theme-green">✔</span><br>Bronze Mic</td><td><span class="theme-green">✔</span><br>Silver Mic</td><td><span class="theme-green">✔</span><br>Gold Mic</td><td><span class="theme-green">✔</span><br>Diamond Mic</td></tr>
+        <tr><td>👨‍🎤 <strong>DJ</strong></td><td><span class="theme-green">✔</span><br>Club</td><td><span class="theme-green">✔</span><br>Bronze Record</td><td><span class="theme-green">✔</span><br>Silver Record</td><td><span class="theme-green">✔</span><br>Gold Record</td><td><span class="theme-green">✔</span><br>Diamond Record</td></tr>
+        <tr><td>👨‍🚒 <strong>EMT</strong></td><td><span class="theme-green">✔</span><br>Ambulance</td><td><span class="theme-green">✔</span><br>Bronze Kit</td><td><span class="theme-green">✔</span><br>Silver Kit</td><td><span class="theme-green">✔</span><br>Gold Kit</td><td><span class="theme-green">✔</span><br>Diamond Kit</td></tr>
+        <tr><td>👨‍🌾 <strong>Winemaker</strong></td><td><span class="theme-green">✔</span><br>Winery</td><td><span class="theme-green">✔</span><br>Bronze Grape</td><td><span class="theme-green">✔</span><br>Silver Grape</td><td><span class="theme-green">✔</span><br>Gold Grape</td><td><span class="theme-green">✔</span><br>Diamond Grape</td></tr>
+        <tr><td>👨‍💼 <strong>Manager</strong></td><td><span class="theme-green">✔</span><br>Office</td><td><span class="theme-green">✔</span><br>Bronze Folder</td><td><span class="theme-green">✔</span><br>Silver Folder</td><td><span class="theme-green">✔</span><br>Gold Folder</td><td><span class="theme-green">✔</span><br>Diamond Folder</td></tr>
+        <tr><td>👩‍🏫 <strong>Professor</strong></td><td><span class="theme-green">✔</span><br>University</td><td><span class="theme-green">✔</span><br>Bronze Chalk</td><td><span class="theme-green">✔</span><br>Silver Chalk</td><td><span class="theme-green">✔</span><br>Gold Chalk</td><td><span class="theme-green">✔</span><br>Diamond Chalk</td></tr>
+        <tr><td>👨‍💻 <strong>IT Specialist</strong></td><td><span class="theme-green">✔</span><br>IT</td><td><span class="theme-green">✔</span><br>Bronze Server</td><td><span class="theme-green">✔</span><br>Silver Server</td><td><span class="theme-green">✔</span><br>Gold Server</td><td><span class="theme-green">✔</span><br>Diamond Server</td></tr>
+        <tr><td>👨‍🔬 <strong>Biologist</strong></td><td><span class="theme-green">✔</span><br>Lab</td><td><span class="theme-green">✔</span><br>Bronze Leaf</td><td><span class="theme-green">✔</span><br>Silver Leaf</td><td><span class="theme-green">✔</span><br>Gold Leaf</td><td><span class="theme-green">✔</span><br>Diamond Leaf</td></tr>
+        <tr><td>👩‍🍳 <strong>Pastry Chef</strong></td><td><span class="theme-green">✔</span><br>Bakery</td><td><span class="theme-green">✔</span><br>Bronze Cake</td><td><span class="theme-green">✔</span><br>Silver Cake</td><td><span class="theme-green">✔</span><br>Gold Cake</td><td><span class="theme-green">✔</span><br>Diamond Cake</td></tr>
+        <tr><td>👨‍🔧 <strong>Plumber</strong></td><td><span class="theme-green">✔</span><br>Pipes</td><td><span class="theme-green">✔</span><br>Bronze Pipe</td><td><span class="theme-green">✔</span><br>Silver Pipe</td><td><span class="theme-green">✔</span><br>Gold Pipe</td><td><span class="theme-green">✔</span><br>Diamond Pipe</td></tr>
+        <tr><td>👩‍🎨 <strong>Designer</strong></td><td><span class="theme-green">✔</span><br>Studio</td><td><span class="theme-green">✔</span><br>Bronze Pencil</td><td><span class="theme-green">✔</span><br>Silver Pencil</td><td><span class="theme-green">✔</span><br>Gold Pencil</td><td><span class="theme-green">✔</span><br>Diamond Pencil</td></tr>
+        <tr><td>👨‍🌾 <strong>Rancher</strong></td><td><span class="theme-green">✔</span><br>Ranch</td><td><span class="theme-green">✔</span><br>Bronze Cow</td><td><span class="theme-green">✔</span><br>Silver Cow</td><td><span class="theme-green">✔</span><br>Gold Cow</td><td><span class="theme-green">✔</span><br>Diamond Cow</td></tr>
+        <tr><td>👩‍🔬 <strong>Pharmacist</strong></td><td><span class="theme-green">✔</span><br>Pharmacy</td><td><span class="theme-green">✔</span><br>Bronze Pill</td><td><span class="theme-green">✔</span><br>Silver Pill</td><td><span class="theme-green">✔</span><br>Gold Pill</td><td><span class="theme-green">✔</span><br>Diamond Pill</td></tr>
+        <tr><td>👨‍💼 <strong>Accountant</strong></td><td><span class="theme-green">✔</span><br>Office</td><td><span class="theme-green">✔</span><br>Bronze Calculator</td><td><span class="theme-green">✔</span><br>Silver Calculator</td><td><span class="theme-green">✔</span><br>Gold Calculator</td><td><span class="theme-green">✔</span><br>Diamond Calculator</td></tr>
+        <tr><td>👩‍🏫 <strong>Instructor</strong></td><td><span class="theme-green">✔</span><br>Classroom</td><td><span class="theme-green">✔</span><br>Bronze Board</td><td><span class="theme-green">✔</span><br>Silver Board</td><td><span class="theme-green">✔</span><br>Gold Board</td><td><span class="theme-green">✔</span><br>Diamond Board</td></tr>
+        <tr><td>👨‍💻 <strong>Engineer</strong></td><td><span class="theme-green">✔</span><br>Workshop</td><td><span class="theme-green">✔</span><br>Bronze Gear</td><td><span class="theme-green">✔</span><br>Silver Gear</td><td><span class="theme-green">✔</span><br>Gold Gear</td><td><span class="theme-green">✔</span><br>Diamond Gear</td></tr>
+        <tr><td>👨‍🔬 <strong>Geologist</strong></td><td><span class="theme-green">✔</span><br>Mine</td><td><span class="theme-green">✔</span><br>Bronze Rock</td><td><span class="theme-green">✔</span><br>Silver Rock</td><td><span class="theme-green">✔</span><br>Gold Rock</td><td><span class="theme-green">✔</span><br>Diamond Rock</td></tr>
+        <tr><td>👩‍🍳 <strong>Barista</strong></td><td><span class="theme-green">✔</span><br>Cafe</td><td><span class="theme-green">✔</span><br>Bronze Cup</td><td><span class="theme-green">✔</span><br>Silver Cup</td><td><span class="theme-green">✔</span><br>Gold Cup</td><td><span class="theme-green">✔</span><br>Diamond Cup</td></tr>
+        <tr><td>👨‍🔧 <strong>Technician</strong></td><td><span class="theme-green">✔</span><br>Lab</td><td><span class="theme-green">✔</span><br>Bronze Chip</td><td><span class="theme-green">✔</span><br>Silver Chip</td><td><span class="theme-green">✔</span><br>Gold Chip</td><td><span class="theme-green">✔</span><br>Diamond Chip</td></tr>
+        <tr><td>👩‍🎨 <strong>Animator</strong></td><td><span class="theme-green">✔</span><br>Studio</td><td><span class="theme-green">✔</span><br>Bronze Film</td><td><span class="theme-green">✔</span><br>Silver Film</td><td><span class="theme-green">✔</span><br>Gold Film</td><td><span class="theme-green">✔</span><br>Diamond Film</td></tr>
+        <tr><td>👨‍🌾 <strong>Florist</strong></td><td><span class="theme-green">✔</span><br>Shop</td><td><span class="theme-green">✔</span><br>Bronze Rose</td><td><span class="theme-green">✔</span><br>Silver Rose</td><td><span class="theme-green">✔</span><br>Gold Rose</td><td><span class="theme-green">✔</span><br>Diamond Rose</td></tr>
+        <tr><td>👩‍🔬 <strong>Researcher</strong></td><td><span class="theme-green">✔</span><br>Lab</td><td><span class="theme-green">✔</span><br>Bronze Microscope</td><td><span class="theme-green">✔</span><br>Silver Microscope</td><td><span class="theme-green">✔</span><br>Gold Microscope</td><td><span class="theme-green">✔</span><br>Diamond Microscope</td></tr>
+        <tr><td>👨‍💼 <strong>Consultant</strong></td><td><span class="theme-green">✔</span><br>Office</td><td><span class="theme-green">✔</span><br>Bronze Chart</td><td><span class="theme-green">✔</span><br>Silver Chart</td><td><span class="theme-green">✔</span><br>Gold Chart</td><td><span class="theme-green">✔</span><br>Diamond Chart</td></tr>
+        <tr><td>👩‍🏫 <strong>Counselor</strong></td><td><span class="theme-green">✔</span><br>Clinic</td><td><span class="theme-green">✔</span><br>Bronze Heart</td><td><span class="theme-green">✔</span><br>Silver Heart</td><td><span class="theme-green">✔</span><br>Gold Heart</td><td><span class="theme-green">✔</span><br>Diamond Heart</td></tr>
+        <tr><td>👨‍💻 <strong>Copywriter</strong></td><td><span class="theme-green">✔</span><br>Agency</td><td><span class="theme-green">✔</span><br>Bronze Pen</td><td><span class="theme-green">✔</span><br>Silver Pen</td><td><span class="theme-green">✔</span><br>Gold Pen</td><td><span class="theme-green">✔</span><br>Diamond Pen</td></tr>
+        <tr><td>👨‍🔬 <strong>Physicist</strong></td><td><span class="theme-green">✔</span><br>Lab</td><td><span class="theme-green">✔</span><br>Bronze Atom</td><td><span class="theme-green">✔</span><br>Silver Atom</td><td><span class="theme-green">✔</span><br>Gold Atom</td><td><span class="theme-green">✔</span><br>Diamond Atom</td></tr>
+        <tr><td>👩‍🍳 <strong>Chef de Partie</strong></td><td><span class="theme-green">✔</span><br>Kitchen</td><td><span class="theme-green">✔</span><br>Bronze Pan</td><td><span class="theme-green">✔</span><br>Silver Pan</td><td><span class="theme-green">✔</span><br>Gold Pan</td><td><span class="theme-green">✔</span><br>Diamond Pan</td></tr>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+        </tr>
+        <tr>
+            <td><img src="https://cdn.jsdelivr.net/gh/naorNC/nc-loadingscreenv4-assets/vehicle-placeholder.png" alt="Vehicle Placeholder" class="vehicle-img"> 🚙<br><strong>Placeholder Vehicle 2</strong></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+        </tr>
+        <!-- ...repeat with more emojis and names up to 50 rows... -->
+        <!-- For brevity, the rest will use 🚗 emoji -->
+        <tr>
+            <td><img src="https://cdn.jsdelivr.net/gh/naorNC/nc-loadingscreenv4-assets/vehicle-placeholder.png" alt="Vehicle Placeholder" class="vehicle-img"> 🚗<br><strong>Placeholder Vehicle 3</strong></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+        </tr>
+        <!-- ...repeat for vehicles 4-50... -->
+        <tr>
+            <td><img src="https://cdn.jsdelivr.net/gh/naorNC/nc-loadingscreenv4-assets/vehicle-placeholder.png" alt="Vehicle Placeholder" class="vehicle-img"> 🚗<br><strong>Placeholder Vehicle 50</strong></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+        </tr>
+</tbody>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Standard</span></td>
+            <td><span class="theme-green">✔</span><br>Bronze Skin</td>
+            <td><span class="theme-green">✔</span><br>Silver Skin</td>
+            <td><span class="theme-green">✔</span><br>Gold Skin</td>
+            <td><span class="theme-green">✔</span><br>Diamond Skin</td>
+        </tr>
+        <tr>
+            <td><img src="https://cdn.jsdelivr.net/gh/naorNC/nc-loadingscreenv4-assets/vehicle-placeholder.png" alt="Vehicle Placeholder" class="vehicle-img"><br><strong>Mechanic Van</strong></td>
+            <td>Coming Soon</td>
+            <td><span class="theme-green">✔</span><br>Bronze Van</td>
+            <td><span class="theme-green">✔</span><br>Silver Van</td>
+            <td><span class="theme-green">✔</span><br>Gold Van</td>
+            <td><span class="theme-green">✔</span><br>Diamond Van</td>
+        </tr>
+        <tr>
+            <td><img src="https://cdn.jsdelivr.net/gh/naorNC/nc-loadingscreenv4-assets/vehicle-placeholder.png" alt="Vehicle Placeholder" class="vehicle-img"><br><strong>Taxi</strong></td>
+            <td>Coming Soon</td>
+            <td>Coming Soon</td>
+            <td><span class="theme-green">✔</span><br>Silver Taxi</td>
+            <td><span class="theme-green">✔</span><br>Gold Taxi</td>
+            <td><span class="theme-green">✔</span><br>Diamond Taxi</td>
+        </tr>
+        <tr>
+            <td><img src="https://cdn.jsdelivr.net/gh/naorNC/nc-loadingscreenv4-assets/vehicle-placeholder.png" alt="Vehicle Placeholder" class="vehicle-img"><br><strong>Police Car</strong></td>
+            <td>Coming Soon</td>
+            <td>Coming Soon</td>
+            <td>Coming Soon</td>
+            <td><span class="theme-green">✔</span><br>Gold Police Car</td>
+            <td><span class="theme-green">✔</span><br>Diamond Police Car</td>
+        </tr>
+        <tr>
+            <td><img src="https://cdn.jsdelivr.net/gh/naorNC/nc-loadingscreenv4-assets/vehicle-placeholder.png" alt="Vehicle Placeholder" class="vehicle-img"><br><strong>Ambulance</strong></td>
+            <td>Coming Soon</td>
+            <td><span class="theme-green">✔</span><br>Bronze Ambulance</td>
+            <td><span class="theme-green">✔</span><br>Silver Ambulance</td>
+            <td><span class="theme-green">✔</span><br>Gold Ambulance</td>
+            <td><span class="theme-green">✔</span><br>Diamond Ambulance</td>
+        </tr>
+        <tr>
+            <td><img src="https://cdn.jsdelivr.net/gh/naorNC/nc-loadingscreenv4-assets/vehicle-placeholder.png" alt="Vehicle Placeholder" class="vehicle-img"><br><strong>House Car</strong></td>
+            <td>Coming Soon</td>
+            <td><span class="theme-green">✔</span><br>Bronze House Car</td>
+            <td><span class="theme-green">✔</span><br>Silver House Car</td>
+            <td><span class="theme-green">✔</span><br>Gold House Car</td>
+            <td><span class="theme-green">✔</span><br>Diamond House Car</td>
+        </tr>
+        <tr>
+            <td><img src="https://cdn.jsdelivr.net/gh/naorNC/nc-loadingscreenv4-assets/vehicle-placeholder.png" alt="Vehicle Placeholder" class="vehicle-img"><br><strong>Gang Car</strong></td>
+            <td>Coming Soon</td>
+            <td>Coming Soon</td>
+            <td><span class="theme-green">✔</span><br>Silver Gang Car</td>
+            <td><span class="theme-green">✔</span><br>Gold Gang Car</td>
+            <td><span class="theme-green">✔</span><br>Diamond Gang Car</td>
+        </tr>
+        <tr>
+            <td><img src="https://cdn.jsdelivr.net/gh/naorNC/nc-loadingscreenv4-assets/vehicle-placeholder.png" alt="Vehicle Placeholder" class="vehicle-img"><br><strong>Business Car</strong></td>
+            <td>Coming Soon</td>
+            <td><span class="theme-green">✔</span><br>Bronze Business Car</td>
+            <td><span class="theme-green">✔</span><br>Silver Business Car</td>
+            <td><span class="theme-green">✔</span><br>Gold Business Car</td>
+            <td><span class="theme-green">✔</span><br>Diamond Business Car</td>
+        </tr>
+        <tr>
+            <td><img src="https://cdn.jsdelivr.net/gh/naorNC/nc-loadingscreenv4-assets/vehicle-placeholder.png" alt="Vehicle Placeholder" class="vehicle-img"><br><strong>Hitman Car</strong></td>
+            <td>Coming Soon</td>
+            <td>Coming Soon</td>
+            <td><span class="theme-green">✔</span><br>Silver Hitman Car</td>
+            <td><span class="theme-green">✔</span><br>Gold Hitman Car</td>
+            <td><span class="theme-green">✔</span><br>Diamond Hitman Car</td>
+        </tr>
+    </tbody>
+</table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Activities Modal -->
+    <div id="activities-modal" class="jobs-modal">
+        <div class="jobs-modal-content">
+            <button id="activities-modal-close" class="jobs-modal-close" aria-label="Close Activities Modal"><i class="fas fa-times"></i></button>
+            <div class="jobs-modal-header">
+                <h2><i class="fas fa-gamepad"></i> Activities & Donor Ranks</h2>
+                <div class="line-decoration"></div>
+            </div>
+            <div class="jobs-modal-table-container">
+                <table class="jobs-donor-table">
+    <thead>
+        <tr>
+            <th>Activity</th>
+            <th>Default</th>
+            <th>Bronze 🟤</th>
+            <th>Silver 🥈</th>
+            <th>Gold 🥇</th>
+            <th>Diamond 💎</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- 50 placeholder activities -->
+        <tr>
+            <td>🎣 <strong>Placeholder Activity 1</strong></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+        </tr>
+        <tr>
+            <td>🏁 <strong>Placeholder Activity 2</strong></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+        </tr>
+        <!-- ...repeat with more emojis and names up to 50 rows... -->
+        <!-- For brevity, the rest will use 🎲 emoji -->
+        <tr>
+            <td>🎲 <strong>Placeholder Activity 3</strong></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+        </tr>
+        <!-- ...repeat for activities 4-50... -->
+        <tr>
+            <td>🎲 <strong>Placeholder Activity 50</strong></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+        </tr>
+</tbody>
+            <td><span class="theme-green">✔</span><br>Standard Rod</td>
+            <td><span class="theme-green">✔</span><br>Bronze Rod</td>
+            <td><span class="theme-green">✔</span><br>Silver Rod</td>
+            <td><span class="theme-green">✔</span><br>Gold Rod</td>
+            <td><span class="theme-green">✔</span><br>Diamond Rod</td>
+        </tr>
+        <tr>
+            <td><strong>Hunting</strong></td>
+            <td><span class="theme-green">✔</span><br>Standard Rifle</td>
+            <td><span class="theme-green">✔</span><br>Bronze Rifle</td>
+            <td><span class="theme-green">✔</span><br>Silver Rifle</td>
+            <td><span class="theme-green">✔</span><br>Gold Rifle</td>
+            <td><span class="theme-green">✔</span><br>Diamond Rifle</td>
+        </tr>
+        <tr>
+            <td><strong>Racing</strong></td>
+            <td>Coming Soon</td>
+            <td><span class="theme-green">✔</span><br>Bronze Car</td>
+            <td><span class="theme-green">✔</span><br>Silver Car</td>
+            <td><span class="theme-green">✔</span><br>Gold Car</td>
+            <td><span class="theme-green">✔</span><br>Diamond Car</td>
+        </tr>
+        <tr>
+            <td><strong>Treasure Hunt</strong></td>
+            <td>Coming Soon</td>
+            <td>Coming Soon</td>
+            <td><span class="theme-green">✔</span><br>Silver Map</td>
+            <td><span class="theme-green">✔</span><br>Gold Map</td>
+            <td><span class="theme-green">✔</span><br>Diamond Map</td>
+        </tr>
+        <tr>
+            <td><strong>Paintball</strong></td>
+            <td>Coming Soon</td>
+            <td>Coming Soon</td>
+            <td>Coming Soon</td>
+            <td><span class="theme-green">✔</span><br>Gold Paintball Gun</td>
+            <td><span class="theme-green">✔</span><br>Diamond Paintball Gun</td>
+        </tr>
+    </tbody>
+</table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Houses/Property Modal -->
+    <div id="houses-modal" class="jobs-modal">
+        <div class="jobs-modal-content">
+            <button id="houses-modal-close" class="jobs-modal-close" aria-label="Close Houses Modal"><i class="fas fa-times"></i></button>
+            <div class="jobs-modal-header">
+                <h2><i class="fas fa-home"></i> Houses & Donor Ranks</h2>
+                <div class="line-decoration"></div>
+            </div>
+            <div class="jobs-modal-table-container">
+                <table class="jobs-donor-table">
+    <thead>
+        <tr>
+            <th>House Type</th>
+            <th>Default</th>
+            <th>Bronze 🟤</th>
+            <th>Silver 🥈</th>
+            <th>Gold 🥇</th>
+            <th>Diamond 💎</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- 50 placeholder properties -->
+        <tr>
+            <td>🏠 <strong>Placeholder Property 1</strong></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+        </tr>
+        <tr>
+            <td>🏡 <strong>Placeholder Property 2</strong></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+        </tr>
+        <!-- ...repeat with more emojis and names up to 50 rows... -->
+        <!-- For brevity, the rest will use 🏘️ emoji -->
+        <tr>
+            <td>🏘️ <strong>Placeholder Property 3</strong></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+        </tr>
+        <!-- ...repeat for properties 4-50... -->
+        <tr>
+            <td>🏘️ <strong>Placeholder Property 50</strong></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Placeholder</span></td>
+        </tr>
+</tbody>
+            <td><span class="theme-green">✔</span><br><span class="theme-green">Standard</span></td>
+            <td><span class="theme-green">✔</span><br>Bronze Decor</td>
+            <td><span class="theme-green">✔</span><br>Silver Decor</td>
+            <td><span class="theme-green">✔</span><br>Gold Decor</td>
+            <td><span class="theme-green">✔</span><br>Diamond Decor</td>
+        </tr>
+        <tr>
+            <td><strong>House</strong></td>
+            <td>Coming Soon</td>
+            <td><span class="theme-green">✔</span><br>Bronze House</td>
+            <td><span class="theme-green">✔</span><br>Silver House</td>
+            <td><span class="theme-green">✔</span><br>Gold House</td>
+            <td><span class="theme-green">✔</span><br>Diamond House</td>
+        </tr>
+        <tr>
+            <td><strong>Villa</strong></td>
+            <td>Coming Soon</td>
+            <td>Coming Soon</td>
+            <td><span class="theme-green">✔</span><br>Silver Villa</td>
+            <td><span class="theme-green">✔</span><br>Gold Villa</td>
+            <td><span class="theme-green">✔</span><br>Diamond Villa</td>
+        </tr>
+        <tr>
+            <td><strong>Penthouse</strong></td>
+            <td>Coming Soon</td>
+            <td>Coming Soon</td>
+            <td>Coming Soon</td>
+            <td><span class="theme-green">✔</span><br>Gold Penthouse</td>
+            <td><span class="theme-green">✔</span><br>Diamond Penthouse</td>
+        </tr>
+        <tr>
+            <td><strong>Custom Mansion</strong></td>
+            <td>Coming Soon</td>
+            <td>Coming Soon</td>
+            <td>Coming Soon</td>
+            <td>Coming Soon</td>
+            <td><span class="theme-green">✔</span><br>Diamond Mansion</td>
+        </tr>
+    </tbody>
+</table>
+            </div>
+        </div>
+    </div>
+
+        <thead>
+            <tr>
+                <th>Job</th>
+                <th>Default</th>
+                <th>Bronze 🟤</th>
+                <th>Silver 🥈</th>
+                <th>Gold 🥇</th>
+                <th>Diamond 💎</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Civilian</strong></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$1000/hr</span><br><span class="perk theme-green">None</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$1100/hr</span><br><span class="perk theme-green">+10% pay</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$1150/hr</span><br><span class="perk theme-green">+15% pay</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$1200/hr</span><br><span class="perk theme-green">+20% pay</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$1300/hr</span><br><span class="perk theme-green">+30% pay</span></div></td>
+            </tr>
+            <tr>
+                <td><strong>Mechanic</strong></td>
+                <td><div class="job-access no"><span class="coming-soon theme-red">—</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$1500/hr</span><br><span class="perk theme-green">Bronze car skin</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$1650/hr</span><br><span class="perk theme-green">Silver skin, +15% pay</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$1800/hr</span><br><span class="perk theme-green">Gold skin, +20% pay</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$2000/hr</span><br><span class="perk theme-green">Diamond skin, +30% pay</span></div></td>
+            </tr>
+            <tr>
+                <td><strong>Taxi Driver</strong></td>
+                <td><div class="job-access no"><span class="coming-soon theme-red">—</span></div></td>
+                <td><div class="job-access no"><span class="coming-soon theme-red">—</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$1800/hr</span><br><span class="perk theme-green">Priority support</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$2000/hr</span><br><span class="perk theme-green">Exclusive events</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$2200/hr</span><br><span class="perk theme-green">Diamond skin, All lower perks</span></div></td>
+            </tr>
+            <tr>
+                <td><strong>Police Officer</strong></td>
+                <td><div class="job-access no"><span class="coming-soon theme-red">—</span></div></td>
+                <td><div class="job-access no"><span class="coming-soon theme-red">—</span></div></td>
+                <td><div class="job-access no"><span class="coming-soon theme-red">—</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$2200/hr</span><br><span class="perk theme-green">Gold skin, /policecar</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$2500/hr</span><br><span class="perk theme-green">Diamond skin, All lower perks</span></div></td>
+            </tr>
+            <tr>
+                <td><strong>VIP Pilot</strong></td>
+                <td><div class="job-access no"><span class="coming-soon theme-red">—</span></div></td>
+                <td><div class="job-access no"><span class="coming-soon theme-red">—</span></div></td>
+                <td><div class="job-access no"><span class="coming-soon theme-red">—</span></div></td>
+                <td><div class="job-access no"><span class="coming-soon theme-red">—</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$3000/hr</span><br><span class="perk theme-green">Custom tag, All lower perks</span></div></td>
+            </tr>
+            <tr>
+                <td><strong>EMS</strong></td>
+                <td><div class="job-access no"><span class="coming-soon theme-red">—</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$1400/hr</span><br><span class="perk theme-green">Bronze ambulance skin</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$1600/hr</span><br><span class="perk theme-green">Silver ambulance, +15% pay</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$1800/hr</span><br><span class="perk theme-green">Gold ambulance, +20% pay</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$2000/hr</span><br><span class="perk theme-green">Diamond ambulance, +30% pay</span></div></td>
+            </tr>
+            <tr>
+                <td><strong>Lawyer</strong></td>
+                <td><div class="job-access no"><span class="coming-soon theme-red">—</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$1700/hr</span><br><span class="perk theme-green">Legal perks</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$2000/hr</span><br><span class="perk theme-green">Priority case handling</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$2200/hr</span><br><span class="perk theme-green">Gold badge, +20% pay</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$2500/hr</span><br><span class="perk theme-green">Diamond badge, +30% pay</span></div></td>
+            </tr>
+            <tr>
+                <td><strong>Real Estate Agent</strong></td>
+                <td><div class="job-access no"><span class="coming-soon theme-red">—</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$1600/hr</span><br><span class="perk theme-green">Bronze house sales</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$1900/hr</span><br><span class="perk theme-green">Silver house sales, +15% pay</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$2100/hr</span><br><span class="perk theme-green">Gold house sales, +20% pay</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$2500/hr</span><br><span class="perk theme-green">Diamond house sales, +30% pay</span></div></td>
+            </tr>
+            <tr>
+                <td><strong>Gang Leader</strong></td>
+                <td><div class="job-access no"><span class="coming-soon theme-red">—</span></div></td>
+                <td><div class="job-access no"><span class="coming-soon theme-red">—</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$2500/hr</span><br><span class="perk theme-green">Silver weapon skin</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$3000/hr</span><br><span class="perk theme-green">Gold weapon skin, /gangcar</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$3500/hr</span><br><span class="perk theme-green">Diamond weapon skin, Custom gang HQ</span></div></td>
+            </tr>
+            <tr>
+                <td><strong>Business Owner</strong></td>
+                <td><div class="job-access no"><span class="coming-soon theme-red">—</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$2000/hr</span><br><span class="perk theme-green">Bronze business</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$2300/hr</span><br><span class="perk theme-green">Silver business, +15% pay</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$2600/hr</span><br><span class="perk theme-green">Gold business, +20% pay</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$3000/hr</span><br><span class="perk theme-green">Diamond business, Custom logo</span></div></td>
+            </tr>
+            <tr>
+                <td><strong>Hitman</strong></td>
+                <td><div class="job-access no"><span class="coming-soon theme-red">—</span></div></td>
+                <td><div class="job-access no"><span class="coming-soon theme-red">—</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$4000/hr</span><br><span class="perk theme-green">Silver weapon, Priority contracts</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$5000/hr</span><br><span class="perk theme-green">Gold weapon, /hitman</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$6000/hr</span><br><span class="perk theme-green">Diamond weapon, Custom mask</span></div></td>
+            </tr>
+        </tbody>
+    </table>
+
+<!-- VEHICLES TABLE -->
+<div class="jobs-modal-table-container">
+    <table class="jobs-donor-table">
+        <thead>
+            <tr>
+                <th>Vehicle</th>
+                <th>Default</th>
+                <th>Bronze 🟤</th>
+                <th>Silver 🥈</th>
+                <th>Gold 🥇</th>
+                <th>Diamond 💎</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><img src="https://cdn.jsdelivr.net/gh/naorNC/nc-loadingscreenv4-assets/vehicle-placeholder.png" alt="Vehicle Placeholder" class="vehicle-img"> 🚗<br><strong>Sedan</strong></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span><span class="theme-green">Standard</span></span><br><span class="perk theme-green">None</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="perk theme-green">Bronze Sedan</span><br><span class="perk theme-green">+5% speed</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="perk theme-green">Silver Sedan</span><br><span class="perk theme-green">+10% speed</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="perk theme-green">Gold Sedan</span><br><span class="perk theme-green">+15% speed</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="perk theme-green">Diamond Sedan</span><br><span class="perk theme-green">+20% speed</span></div></td>
+            </tr>
+            <tr>
+                <td><img src="https://cdn.jsdelivr.net/gh/naorNC/nc-loadingscreenv4-assets/vehicle-placeholder.png" alt="Vehicle Placeholder" class="vehicle-img"> 🚙<br><strong>SUV</strong></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span><span class="theme-green">Standard</span></span><br><span class="perk theme-green">None</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="perk theme-green">Bronze SUV</span><br><span class="perk theme-green">+7% grip</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="perk theme-green">Silver SUV</span><br><span class="perk theme-green">+12% grip</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="perk theme-green">Gold SUV</span><br><span class="perk theme-green">+17% grip</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="perk theme-green">Diamond SUV</span><br><span class="perk theme-green">+22% grip</span></div></td>
+            </tr>
+            <tr>
+                <td><img src="https://cdn.jsdelivr.net/gh/naorNC/nc-loadingscreenv4-assets/vehicle-placeholder.png" alt="Vehicle Placeholder" class="vehicle-img"> 🚕<br><strong>Taxi</strong></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span><span class="theme-green">Standard</span></span><br><span class="perk theme-green">None</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="perk theme-green">Bronze Taxi</span><br><span class="perk theme-green">+5% fare</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="perk theme-green">Silver Taxi</span><br><span class="perk theme-green">+10% fare</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="perk theme-green">Gold Taxi</span><br><span class="perk theme-green">+15% fare</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="perk theme-green">Diamond Taxi</span><br><span class="perk theme-green">+20% fare</span></div></td>
+            </tr>
+            <tr>
+                <td><img src="https://cdn.jsdelivr.net/gh/naorNC/nc-loadingscreenv4-assets/vehicle-placeholder.png" alt="Vehicle Placeholder" class="vehicle-img"> 🚓<br><strong>Police Car</strong></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span><span class="theme-green">Standard</span></span><br><span class="perk theme-green">None</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="perk theme-green">Bronze Police</span><br><span class="perk theme-green">+5% siren</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="perk theme-green">Silver Police</span><br><span class="perk theme-green">+10% siren</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="perk theme-green">Gold Police</span><br><span class="perk theme-green">+15% siren</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="perk theme-green">Diamond Police</span><br><span class="perk theme-green">+20% siren</span></div></td>
+            </tr>
+            <tr>
+                <td><img src="https://cdn.jsdelivr.net/gh/naorNC/nc-loadingscreenv4-assets/vehicle-placeholder.png" alt="Vehicle Placeholder" class="vehicle-img"> 🚑<br><strong>Ambulance</strong></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span><span class="theme-green">Standard</span></span><br><span class="perk theme-green">None</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="perk theme-green">Bronze Ambulance</span><br><span class="perk theme-green">+5% heal</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="perk theme-green">Silver Ambulance</span><br><span class="perk theme-green">+10% heal</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="perk theme-green">Gold Ambulance</span><br><span class="perk theme-green">+15% heal</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="perk theme-green">Diamond Ambulance</span><br><span class="perk theme-green">+20% heal</span></div></td>
+            </tr>
+            <tr>
+                <td><img src="https://cdn.jsdelivr.net/gh/naorNC/nc-loadingscreenv4-assets/vehicle-placeholder.png" alt="Vehicle Placeholder" class="vehicle-img"> 🚒<br><strong>Fire Truck</strong></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span><span class="theme-green">Standard</span></span><br><span class="perk theme-green">None</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="perk theme-green">Bronze Fire Truck</span><br><span class="perk theme-green">+5% water</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="perk theme-green">Silver Fire Truck</span><br><span class="perk theme-green">+10% water</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="perk theme-green">Gold Fire Truck</span><br><span class="perk theme-green">+15% water</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="perk theme-green">Diamond Fire Truck</span><br><span class="perk theme-green">+20% water</span></div></td>
+            </tr>
+            <tr>
+                <td><img src="https://cdn.jsdelivr.net/gh/naorNC/nc-loadingscreenv4-assets/vehicle-placeholder.png" alt="Vehicle Placeholder" class="vehicle-img"> 🚌<br><strong>Bus</strong></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span><span class="theme-green">Standard</span></span><br><span class="perk theme-green">None</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="perk theme-green">Bronze Bus</span><br><span class="perk theme-green">+5% capacity</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="perk theme-green">Silver Bus</span><br><span class="perk theme-green">+10% capacity</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="perk theme-green">Gold Bus</span><br><span class="perk theme-green">+15% capacity</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="perk theme-green">Diamond Bus</span><br><span class="perk theme-green">+20% capacity</span></div></td>
+            </tr>
+            <tr>
+                <td><img src="https://cdn.jsdelivr.net/gh/naorNC/nc-loadingscreenv4-assets/vehicle-placeholder.png" alt="Vehicle Placeholder" class="vehicle-img"> 🚚<br><strong>Truck</strong></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span><span class="theme-green">Standard</span></span><br><span class="perk theme-green">None</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="perk theme-green">Bronze Truck</span><br><span class="perk theme-green">+5% cargo</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="perk theme-green">Silver Truck</span><br><span class="perk theme-green">+10% cargo</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="perk theme-green">Gold Truck</span><br><span class="perk theme-green">+15% cargo</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="perk theme-green">Diamond Truck</span><br><span class="perk theme-green">+20% cargo</span></div></td>
+            </tr>
+            <tr>
+                <td><img src="https://cdn.jsdelivr.net/gh/naorNC/nc-loadingscreenv4-assets/vehicle-placeholder.png" alt="Vehicle Placeholder" class="vehicle-img"> 🚛<br><strong>Semi Truck</strong></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span><span class="theme-green">Standard</span></span><br><span class="perk theme-green">None</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="perk theme-green">Bronze Semi</span><br><span class="perk theme-green">+5% cargo</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="perk theme-green">Silver Semi</span><br><span class="perk theme-green">+10% cargo</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="perk theme-green">Gold Semi</span><br><span class="perk theme-green">+15% cargo</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="perk theme-green">Diamond Semi</span><br><span class="perk theme-green">+20% cargo</span></div></td>
+            </tr>
+            <tr>
+                <td><img src="https://cdn.jsdelivr.net/gh/naorNC/nc-loadingscreenv4-assets/vehicle-placeholder.png" alt="Vehicle Placeholder" class="vehicle-img"> 🚜<br><strong>Tractor</strong></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span><span class="theme-green">Standard</span></span><br><span class="perk theme-green">None</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="perk theme-green">Bronze Tractor</span><br><span class="perk theme-green">+5% plow</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="perk theme-green">Silver Tractor</span><br><span class="perk theme-green">+10% plow</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="perk theme-green">Gold Tractor</span><br><span class="perk theme-green">+15% plow</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="perk theme-green">Diamond Tractor</span><br><span class="perk theme-green">+20% plow</span></div></td>
+            </tr>
+            <!-- ...repeat for a total of 50 real-sounding vehicles with emoji and style matching the jobs modal... -->
+            <!-- For brevity, only 10 are shown. The rest should follow the same pattern and styling. -->
+        </tbody>
+    </table>
+</div>
+
+<!-- ACTIVITIES TABLE -->
+<div class="jobs-modal-table-container">
+    <table class="jobs-donor-table">
+        <thead>
+            <tr>
+                <th>Activity</th>
+                <th>Default</th>
+                <th>Bronze 🟤</th>
+                <th>Silver 🥈</th>
+                <th>Gold 🥇</th>
+                <th>Diamond 💎</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Car Meet</strong></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span>Join</span><br><span class="perk theme-green">None</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span>Priority Entry</span><br><span class="perk theme-green">TBD</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span>VIP Entry</span><br><span class="perk theme-green">TBD</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="perk theme-green">Gold Entry</span><br><span class="perk theme-green">TBD</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="perk theme-green">Diamond Entry</span><br><span class="perk theme-green">Custom Award</span></div></td>
+            </tr>
+            <tr>
+                <td><strong>Bank Heist</strong></td>
+                <td><div class="job-access no"><span class="coming-soon theme-yellow">Coming Soon</span></div></td>
+                <td><div class="job-access no"><span class="coming-soon theme-yellow">Coming Soon</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span>Allowed</span><br><span class="perk theme-green">Higher Reward</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span>Allowed</span><br><span class="perk theme-green">+10% Reward</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span>Allowed</span><br><span class="perk theme-green">Custom Mask</span></div></td>
+            </tr>
+            <tr>
+                <td><strong>Race Event</strong></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span>Join</span><br><span class="perk theme-green">None</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="perk theme-green">Bronze Cup</span><br><span class="perk theme-green">TBD</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="perk theme-green">Silver Cup</span><br><span class="perk theme-green">TBD</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="perk theme-green">Gold Cup</span><br><span class="perk theme-green">TBD</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="perk theme-green">Diamond Cup</span><br><span class="perk theme-green">Custom Trophy</span></div></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- HOUSES/PROPERTY TABLE -->
+<div class="jobs-modal-table-container">
+    <table class="jobs-donor-table">
+        <thead>
+            <tr>
+                <th>House/Property</th>
+                <th>Default</th>
+                <th>Bronze 🟤</th>
+                <th>Silver 🥈</th>
+                <th>Gold 🥇</th>
+                <th>Diamond 💎</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Small Apartment</strong></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span>Basic</span><br><span class="perk theme-green">None</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="perk theme-green">Bronze Decor</span><br><span class="perk theme-green">TBD</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="perk theme-green">Silver Decor</span><br><span class="perk theme-green">TBD</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="perk theme-green">Gold Decor</span><br><span class="perk theme-green">TBD</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="perk theme-green">Diamond Decor</span><br><span class="perk theme-green">Custom Art</span></div></td>
+            </tr>
+            <tr>
+                <td><strong>Luxury House</strong></td>
+                <td><div class="job-access no"><span class="coming-soon theme-yellow">Coming Soon</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="perk theme-green">Bronze House</span><br><span class="perk theme-green">TBD</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="perk theme-green">Silver House</span><br><span class="perk theme-green">TBD</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="perk theme-green">Gold House</span><br><span class="perk theme-green">TBD</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="perk theme-green">Diamond House</span><br><span class="perk theme-green">Custom Pool</span></div></td>
+            </tr>
+            <tr>
+                <td><strong>Penthouse</strong></td>
+                <td><div class="job-access no"><span class="coming-soon theme-yellow">Coming Soon</span></div></td>
+                <td><div class="job-access no"><span class="coming-soon theme-yellow">Coming Soon</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="perk theme-green">Silver Penthouse</span><br><span class="perk theme-green">TBD</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="perk theme-green">Gold Penthouse</span><br><span class="perk theme-green">TBD</span></div></td>
+                <td><div class="job-access yes"><span class="theme-green">✔</span><br><span class="perk theme-green">Diamond Penthouse</span><br><span class="perk theme-green">Custom Rooftop</span></div></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<!--
+GUIDE: Editing Jobs & Donor Table
+- To add a new job: Add a <tr>...</tr> row in the <tbody> of the table. Each <td> is a donor rank (Default, Bronze, Silver, Gold, Diamond).
+- For each cell, use:
+    <div class="job-access yes"><span class="theme-green">✔</span><br><span class="pay">$PAY/hr</span><br><span class="perk theme-green">PERKS</span></div>
+  or
+    <div class="job-access no"><span class="coming-soon theme-red">—</span></div>
+- To add a new donor rank: Add a <th> and a <td> for each row. Update all rows to match.
+- To edit payments or perks: Change the text inside <span> or .perk for the relevant cell.
+- Style changes can be made in css/style.css under .jobs-donor-table and .job-access.
+-->
+
+        </div>
+    </div>
+</body>
+</html>

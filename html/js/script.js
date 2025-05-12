@@ -1,7 +1,7 @@
 // NCHub Loading Screen by NaorNC - Version 1.0.0
-// © NaorNC - Unauthorized reproduction or distribution is prohibited
+// NaorNC - Unauthorized reproduction or distribution is prohibited
 
-const DEBUG = false;
+const DEBUG = true;
 
 function debugLog(...args) {
     if (DEBUG) {
@@ -25,8 +25,12 @@ let cursorInitialized = false;
 let audioResetInterval = null;
 let lastAudioCheckTime = 0;
 
+// Theme switching is handled in index.html and only changes CSS color variables. It does not affect background or music.
 document.addEventListener('DOMContentLoaded', () => {
-    debugLog('Loading screen UI initialized!');
+    // All modal-related code has been removed as requested.
+    // Add any stat-card or feature logic here if needed in the future.
+
+    // debugLog('Loading screen UI initialized!');
     
     initAudioSystem();
     initBackground();
@@ -39,41 +43,71 @@ document.addEventListener('DOMContentLoaded', () => {
     displayInitialData();
     
     setTimeout(() => {
-        debugLog('UI is ready, sending ready signal to server');
+        // debugLog('UI is ready, sending ready signal to server');
         sendUIReadySignal();
         fetchServerData();
     }, 500);
 });
 
+// --- Volume slider wiring for background-music ---
+document.addEventListener('DOMContentLoaded', function() {
+    const audio = document.getElementById('background-music');
+    const volumeSlider = document.getElementById('audio-volume');
+    if (audio && volumeSlider) {
+        audio.volume = volumeSlider.value;
+        volumeSlider.max = 1;
+        volumeSlider.value = 1;
+        volumeSlider.addEventListener('input', function() {
+            audio.volume = this.value;
+        });
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Try workaround: play muted, then unmute after short delay
+    const audio = document.getElementById('background-music');
+    const logo = document.querySelector('.logo-animated');
+    if (audio && logo) {
+        setTimeout(function() {
+            audio.volume = 1;
+            audio.muted = true;
+            audio.play().catch(() => {/* If still blocked, nothing else to do */});
+            setTimeout(() => { audio.muted = false; }, 500);
+        }, 10);
+    }
+});
+
 window.addEventListener('load', () => {
-    debugLog('Window fully loaded');
-    
-    document.addEventListener('click', initAudioSystem, { once: true });
-    document.addEventListener('keydown', initAudioSystem, { once: true });
+
+    // debugLog('Window fully loaded');
+    document.addEventListener('mousemove', function(e) {
+    // debugLog('MOUSEMOVE: initAudioSystem triggered');
+    initAudioSystem();
+}, { once: true });
     
     audioResetInterval = setInterval(checkAudioStatus, 2000);
     
     window.addEventListener('focus', () => {
-        debugLog('Window got focus, checking audio');
+        // debugLog('Window got focus, checking audio');
         checkAudioStatus();
     });
     
     document.addEventListener('visibilitychange', () => {
         if (!document.hidden) {
-            debugLog('Tab became visible, checking audio');
+            // debugLog('Tab became visible, checking audio');
             checkAudioStatus();
         }
     });
 });
 
 function initTabSystem() {
-    debugLog('Initializing tab system');
+    // debugLog('Initializing tab system');
     
     const tabs = document.querySelectorAll('.tab');
     const tabContents = document.querySelectorAll('.tab-content');
     
     if (tabs.length === 0 || tabContents.length === 0) {
-        debugLog('Tab elements not found, skipping initialization');
+        // debugLog('Tab elements not found, skipping initialization');
         return;
     }
     
@@ -103,14 +137,14 @@ function initTabSystem() {
         }
     }
     
-    debugLog('Tab system initialized');
+    // debugLog('Tab system initialized');
 }
 
 function initCursor() {
     const cursor = document.querySelector('.custom-cursor');
     if (!cursor || cursorInitialized) return;
     
-    debugLog('Initializing enhanced cursor system');
+    // debugLog('Initializing enhanced cursor system');
     
     let cursorVisible = true;
     let cursorX = 0;
@@ -166,7 +200,7 @@ function initCursor() {
 }
 
 function initSocialLinks() {
-    debugLog('Initializing social links');
+    // debugLog('Initializing social links');
     
     const socialLinks = document.querySelectorAll('.social-icon');
     
@@ -176,7 +210,7 @@ function initSocialLinks() {
             
             const url = this.getAttribute('href');
             if (url && url !== '#') {
-                debugLog('Social link clicked:', url);
+                // debugLog('Social link clicked:', url);
                 openExternalBrowser(url);
             }
         });
@@ -186,13 +220,13 @@ function initSocialLinks() {
 function openExternalBrowser(url) {
     try {
         if (typeof window.invokeNative === 'function') {
-            debugLog('Using invokeNative to open URL:', url);
+            // debugLog('Using invokeNative to open URL:', url);
             window.invokeNative('openUrl', url);
             return;
         }
         
         if (typeof fetch === 'function') {
-            debugLog('Using NUI callback to open URL:', url);
+            // debugLog('Using NUI callback to open URL:', url);
             fetch(`https://${safeGetResourceName()}/openLink`, {
                 method: 'POST',
                 headers: {
@@ -202,20 +236,20 @@ function openExternalBrowser(url) {
                     url: url
                 })
             }).catch(() => {
-                debugLog('NUI failed, trying window.open');
+                // debugLog('NUI failed, trying window.open');
                 window.open(url, '_blank');
             });
             return;
         }
         
-        debugLog('Using window.open for URL:', url);
+        // debugLog('Using window.open for URL:', url);
         window.open(url, '_blank');
     } catch (error) {
-        debugLog('Error opening URL:', error);
+        // debugLog('Error opening URL:', error);
         try {
             window.open(url, '_blank');
         } catch (e) {
-            debugLog('Final attempt to open URL failed');
+            // debugLog('Final attempt to open URL failed');
         }
     }
 }
@@ -228,25 +262,25 @@ function initBackground() {
         bgContainer.innerHTML = '';
         
         if (typeof config === 'undefined') {
-            debugLog('Config not found, using default background image');
+            // debugLog('Config not found, using default background image');
             createBackgroundImage('https://getwallpapers.com/wallpaper/full/4/b/f/1266182-vertical-skyrim-pictures-wallpapers-1920x1080-lockscreen.jpg');
             return;
         }
         
         if (config.appearance && config.appearance.youtubeURL && config.appearance.youtubeURL.trim() !== '') {
-            debugLog('Using YouTube background');
+            // debugLog('Using YouTube background');
             createYouTubeEmbed(config.appearance.youtubeURL);
         } 
         else if (config.appearance && config.appearance.backgroundImage) {
-            debugLog('Using background image');
+            // debugLog('Using background image');
             createBackgroundImage(config.appearance.backgroundImage);
         } 
         else {
-            debugLog('No background specified, using default');
+            // debugLog('No background specified, using default');
             createBackgroundImage('https://getwallpapers.com/wallpaper/full/4/b/f/1266182-vertical-skyrim-pictures-wallpapers-1920x1080-lockscreen.jpg');
         }
     } catch (error) {
-        debugLog('Error initializing background:', error);
+        // debugLog('Error initializing background:', error);
         createBackgroundImage('https://getwallpapers.com/wallpaper/full/4/b/f/1266182-vertical-skyrim-pictures-wallpapers-1920x1080-lockscreen.jpg');
     }
 }
@@ -258,13 +292,13 @@ function createYouTubeEmbed(youtubeURL) {
         
         const videoId = extractYouTubeId(youtubeURL);
         if (!videoId) {
-            debugLog('Invalid YouTube URL:', youtubeURL);
+            // debugLog('Invalid YouTube URL:', youtubeURL);
             createBackgroundImage('https://getwallpapers.com/wallpaper/full/4/b/f/1266182-vertical-skyrim-pictures-wallpapers-1920x1080-lockscreen.jpg');
             return;
         }
         
         if (currentYoutubeId === videoId && document.getElementById('youtube-iframe')) {
-            debugLog('YouTube video already playing');
+            // debugLog('YouTube video already playing');
             return;
         }
         
@@ -272,7 +306,7 @@ function createYouTubeEmbed(youtubeURL) {
         
         bgContainer.innerHTML = '';
         
-        debugLog('Creating direct YouTube iframe embed (always muted)');
+        // debugLog('Creating direct YouTube iframe embed (always muted)');
         
         const iframe = document.createElement('iframe');
         iframe.id = 'youtube-iframe';
@@ -287,7 +321,7 @@ function createYouTubeEmbed(youtubeURL) {
         playAudio();
         
     } catch (error) {
-        debugLog('Error creating YouTube embed:', error);
+        // debugLog('Error creating YouTube embed:', error);
         createBackgroundImage('https://getwallpapers.com/wallpaper/full/4/b/f/1266182-vertical-skyrim-pictures-wallpapers-1920x1080-lockscreen.jpg');
     }
 }
@@ -295,13 +329,13 @@ function createYouTubeEmbed(youtubeURL) {
 function extractYouTubeId(url) {
     if (!url) return null;
     
-    debugLog('Extracting YouTube ID from:', url);
+    // debugLog('Extracting YouTube ID from:', url);
     
     const regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
     const match = url.match(regExp);
     const videoId = (match && match[7].length === 11) ? match[7] : null;
     
-    debugLog('Extracted YouTube ID:', videoId);
+    // debugLog('Extracted YouTube ID:', videoId);
     return videoId;
 }
 
@@ -325,7 +359,7 @@ function createBackgroundImage(imagePath) {
             playAudio();
         }
     } catch (error) {
-        debugLog('Error creating background image:', error);
+        // debugLog('Error creating background image:', error);
     }
 }
 
@@ -339,25 +373,25 @@ function checkAudioStatus() {
     if (!backgroundMusic) return;
 
     if (isMusicPlaying && backgroundMusic.paused) {
-        debugLog('Audio paused unexpectedly, attempting to restart');
+        
         
         try {
             if (backgroundMusic.readyState >= 2) {
                 const promise = backgroundMusic.play();
                 if (promise !== undefined) {
                     promise.catch(error => {
-                        debugLog('Error restarting audio:', error);
+                        
                         
                         if (error.name === 'NotAllowedError') {
-                            debugLog('Autoplay blocked by browser, will try again on user interaction');
+                            // debugLog('Autoplay blocked by browser, will try again on user interaction');
                             isMusicPlaying = false;
                             if (audioToggle) {
                                 audioToggle.innerHTML = '<i class="fas fa-volume-mute"></i>';
                             }
-                            
-                            document.addEventListener('click', () => {
-                                playAudio();
-                            }, { once: true });
+document.addEventListener('mousemove', (e) => {
+    
+    playAudio();
+}, { once: true });                           
                         } else {
                             setTimeout(() => playAudio(), 2000);
                         }
@@ -368,7 +402,7 @@ function checkAudioStatus() {
                 setTimeout(() => playAudio(), 1000);
             }
         } catch (e) {
-            debugLog('Exception during audio restart:', e);
+            
         }
     }
 }
@@ -382,7 +416,7 @@ function initAudioSystem() {
     try {
         if (!audioContext && window.AudioContext) {
             audioContext = new window.AudioContext();
-            debugLog('Audio context created');
+            
         }
         
         backgroundMusic = document.getElementById('background-music');
@@ -392,7 +426,7 @@ function initAudioSystem() {
             backgroundMusic.load();
             
             backgroundMusic.addEventListener('canplaythrough', function() {
-                debugLog('Audio loaded and ready to play');
+                
                 if (isMusicPlaying && backgroundMusic.paused) {
                     playAudio();
                 }
@@ -402,16 +436,16 @@ function initAudioSystem() {
             backgroundMusic.addEventListener('ended', handleAudioEnded);
             backgroundMusic.addEventListener('pause', handleAudioPause);
             backgroundMusic.addEventListener('play', () => {
-                debugLog('Audio play event triggered');
+                
             });
             
             backgroundMusic.addEventListener('stalled', () => {
-                debugLog('Audio stalled');
+                
                 setTimeout(() => playAudio(), 1000);
             });
             
             backgroundMusic.addEventListener('suspend', () => {
-                debugLog('Audio suspended');
+                
                 if (isMusicPlaying) {
                     setTimeout(() => playAudio(), 1000);
                 }
@@ -422,15 +456,15 @@ function initAudioSystem() {
             setTimeout(playAudio, 1000);
             
             audioInitialized = true;
-            debugLog('Audio system initialized');
+            
         }
     } catch (e) {
-        debugLog('Error initializing audio system:', e);
+        
     }
 }
 
 function handleAudioError(e) {
-    debugLog('Audio error occurred:', e);
+    
     
     if (typeof fetch === 'function') {
         fetch(`https://${safeGetResourceName()}/audioError`, {
@@ -447,30 +481,31 @@ function handleAudioError(e) {
 }
 
 function handleAudioEnded() {
-    debugLog('Audio playback ended');
+    
     
     if (isMusicPlaying) {
-        debugLog('Restarting audio');
+        
         backgroundMusic.currentTime = 0;
         playAudio();
     }
 }
 
 function handleAudioPause() {
-    debugLog('Audio pause event detected');
+    
     
     if (isMusicPlaying && backgroundMusic.paused) {
-        debugLog('Audio paused unexpectedly, resuming');
+        
         setTimeout(() => playAudio(), 500);
     }
 }
 
-function playAudio() {
+function playAudio(triggerEvent) {
+    
     if (!backgroundMusic) return;
     
     try {
         if (backgroundMusic.paused) {
-            debugLog('Attempting to play audio');
+            
             
             const volumeConfig = (typeof config !== 'undefined' && config.audio && config.audio.volume !== undefined) 
                                 ? config.audio.volume : 0.3;
@@ -478,17 +513,17 @@ function playAudio() {
             backgroundMusic.volume = volumeConfig;
             
             if (backgroundMusic.readyState < 2) {
-                debugLog('Audio not ready yet, loading...');
+                
                 backgroundMusic.load();
                 
                 backgroundMusic.addEventListener('canplaythrough', function playWhenReady() {
-                    debugLog('Audio now ready, attempting playback');
+                    
                     const playPromise = backgroundMusic.play();
                     
                     if (playPromise !== undefined) {
                         playPromise
                             .then(() => {
-                                debugLog('Audio playback started successfully after loading');
+                                
                                 isMusicPlaying = true;
                                 
                                 if (audioToggle) {
@@ -498,15 +533,16 @@ function playAudio() {
                                 backgroundMusic.removeEventListener('canplaythrough', playWhenReady);
                             })
                             .catch((error) => {
-                                debugLog('Audio play failed after loading:', error);
+                                
                                 
                                 backgroundMusic.removeEventListener('canplaythrough', playWhenReady);
                                 
                                 if (error.name === 'NotAllowedError') {
-                                    debugLog('Autoplay blocked by browser policy');
                                     
-                                    document.addEventListener('click', () => {
-                                        playAudio();
+                                    
+                                    document.addEventListener('click', (e) => {
+                                        // debugLog('CLICK: playAudio fallback triggered after NotAllowedError');
+                                        playAudio('click');
                                     }, { once: true });
                                 } else {
                                     setTimeout(playAudio, 2000);
@@ -520,7 +556,7 @@ function playAudio() {
                 if (playPromise !== undefined) {
                     playPromise
                         .then(() => {
-                            debugLog('Audio playback started successfully');
+                            
                             isMusicPlaying = true;
                             
                             if (audioToggle) {
@@ -536,14 +572,11 @@ function playAudio() {
                             }
                         })
                         .catch((error) => {
-                            debugLog('Audio play failed:', error);
+                            
                             
                             if (error.name === 'NotAllowedError') {
-                                debugLog('Autoplay blocked by browser policy');
                                 
-                                document.addEventListener('click', () => {
-                                    playAudio();
-                                }, { once: true });
+                                
                             } else {
                                 if (audioAttempts < maxAudioAttempts) {
                                     audioAttempts++;
@@ -555,7 +588,7 @@ function playAudio() {
             }
         }
     } catch (e) {
-        debugLog('Error playing audio:', e);
+        // debugLog('Error playing audio:', e);
     }
 }
 
@@ -568,10 +601,10 @@ function toggleAudio() {
             audioToggle.innerHTML = '<i class="fas fa-volume-mute"></i>';
         }
         isMusicPlaying = false;
-        debugLog('Audio paused by user');
+        
     } else {
         playAudio();
-        debugLog('Audio resume attempt by user');
+        
     }
 }
 
@@ -587,7 +620,7 @@ function displayInitialData() {
         availableJobs: "25 jobs"
     });
     
-    debugLog('Initial data displayed');
+    // debugLog('Initial data displayed');
 }
 
 function sendUIReadySignal() {
@@ -601,13 +634,13 @@ function sendUIReadySignal() {
         })
         .then(resp => resp.json())
         .then(data => {
-            debugLog('Server acknowledged UI ready');
+            // debugLog('Server acknowledged UI ready');
         })
         .catch(error => {
-            debugLog('Error sending uiReady:', error);
+            // debugLog('Error sending uiReady:', error);
         });
     } catch (error) {
-        debugLog('Exception in sendUIReadySignal:', error);
+        // debugLog('Exception in sendUIReadySignal:', error);
     }
 }
 
@@ -617,17 +650,17 @@ function safeGetResourceName() {
             return window.GetParentResourceName();
         }
     } catch (error) {
-        debugLog('Error getting resource name:', error);
+        // debugLog('Error getting resource name:', error);
     }
     return 'loadingscreen';
 }
 
 function applyConfig() {
     try {
-        debugLog('Applying configuration from config.js');
+        // debugLog('Applying configuration from config.js');
         
         if (typeof config === 'undefined') {
-            debugLog('Warning: config is not defined - using defaults');
+            // debugLog('Warning: config is not defined - using defaults');
             return;
         }
         
@@ -635,10 +668,10 @@ function applyConfig() {
         if (logoEl) {
             if (config.appearance && config.appearance.animateLogo === false) {
                 logoEl.classList.remove('logo-animated');
-                debugLog('Logo animation disabled by config');
+                // debugLog('Logo animation disabled by config');
             } else {
                 logoEl.classList.add('logo-animated');
-                debugLog('Logo animation enabled');
+                // debugLog('Logo animation enabled');
             }
         }
         
@@ -697,21 +730,21 @@ function applyConfig() {
             maxSlots = config.server.maxPlayers;
         }
         
-        debugLog('Configuration applied successfully');
+        // debugLog('Configuration applied successfully');
     } catch (error) {
-        debugLog('Error applying configuration:', error);
+        // debugLog('Error applying configuration:', error);
     }
 }
 
 function simulateLoading() {
-    debugLog('Starting enhanced loading simulation');
+    // debugLog('Starting enhanced loading simulation');
     
     const progressBar = document.getElementById('loading-progress');
     const percentageText = document.getElementById('loading-percentage');
     const statusText = document.getElementById('loading-status');
     
     if (!progressBar || !percentageText || !statusText) {
-        debugLog('Loading elements not found in DOM');
+        // debugLog('Loading elements not found in DOM');
         return;
     }
     
@@ -753,7 +786,7 @@ function simulateLoading() {
                 setTimeout(() => {
                     statusText.classList.remove('pulse-effect');
                 }, 500);
-                debugLog(`Loading stage changed: ${loadingStages[i].message}`);
+                // debugLog(`Loading stage changed: ${loadingStages[i].message}`);
                 break;
             }
         }
@@ -761,7 +794,7 @@ function simulateLoading() {
         if (currentPercentage < 100) {
             animationFrameId = requestAnimationFrame(updateLoadingBar);
         } else {
-            debugLog('Loading simulation completed');
+            // debugLog('Loading simulation completed');
         }
     }
     
@@ -784,11 +817,11 @@ function simulateLoading() {
 }
 
 function initTips() {
-    debugLog('Initializing tips rotation');
+    // debugLog('Initializing tips rotation');
     
     const tipText = document.getElementById('tip-text');
     if (!tipText) {
-        debugLog('Tip element not found in DOM');
+        // debugLog('Tip element not found in DOM');
         return;
     }
     
@@ -822,7 +855,7 @@ function initTips() {
 }
 
 function fetchServerData() {
-    debugLog('Requesting server data');
+    // debugLog('Requesting server data');
     
     try {
         fetch(`https://${safeGetResourceName()}/getServerData`, {
@@ -834,7 +867,7 @@ function fetchServerData() {
         })
         .then(resp => resp.json())
         .then(response => {
-            debugLog('Data received from server:', response);
+            // debugLog('Data received from server:', response);
             
             if (response && typeof response === 'object') {
                 let data = response;
@@ -844,7 +877,7 @@ function fetchServerData() {
                 
                 if (response.maxSlots && response.maxSlots > 0) {
                     maxSlots = response.maxSlots;
-                    debugLog('Updated max slots to: ' + maxSlots);
+                    // debugLog('Updated max slots to: ' + maxSlots);
                 }
                 
                 dataLoaded = true;
@@ -852,15 +885,15 @@ function fetchServerData() {
             }
         })
         .catch(error => {
-            debugLog('Error fetching server data:', error);
+            // debugLog('Error fetching server data:', error);
         });
     } catch (error) {
-        debugLog('Exception in fetchServerData:', error);
+        // debugLog('Exception in fetchServerData:', error);
     }
 }
 
 function updateServerData(data) {
-    debugLog('Updating UI with server data:', data);
+    // debugLog('Updating UI with server data:', data);
     
     try {
         if (typeof data === 'object' && data !== null) {
@@ -878,12 +911,12 @@ function updateServerData(data) {
                 }
             }
             
-            debugLog('UI updated successfully');
+            // debugLog('UI updated successfully');
         } else {
-            debugLog('Invalid data received, cannot update UI');
+            // debugLog('Invalid data received, cannot update UI');
         }
     } catch (error) {
-        debugLog('Error updating UI:', error);
+        // debugLog('Error updating UI:', error);
     }
 }
 
@@ -891,22 +924,22 @@ window.addEventListener('message', (event) => {
     const data = event.data;
     
     if (data && data.type === 'updateServerData') {
-        debugLog('Received data update event from script:', data.serverInfo);
+        // debugLog('Received data update event from script:', data.serverInfo);
         updateServerData(data.serverInfo);
     }
     
     if (data && data.type === 'forcePlayAudio') {
-        debugLog('Received force play audio command');
+        // debugLog('Received force play audio command');
         playAudio();
     }
     
     if (data && data.type === 'updateMaxSlots') {
-        debugLog('Received max slots update:', data.maxSlots);
+        // debugLog('Received max slots update:', data.maxSlots);
         maxSlots = data.maxSlots;
     }
     
     if (data && data.type === 'updateConfig') {
-        debugLog('Received config update event');
+        // debugLog('Received config update event');
         
         if (data.config) {
             config = data.config;
@@ -920,7 +953,7 @@ window.addEventListener('message', (event) => {
     }
 
     if (data && data.type === 'navigateToTab') {
-        debugLog('Received tab navigation command:', data.tabId);
+        // debugLog('Received tab navigation command:', data.tabId);
         if (data.tabId && typeof window.switchTab === 'function') {
             window.switchTab(data.tabId);
         }
@@ -940,7 +973,7 @@ function isFiveMContext() {
 }
 
 function preloadImages(sources) {
-    debugLog('Preloading images');
+    // debugLog('Preloading images');
     sources.forEach(src => {
         const img = new Image();
         img.src = src;
@@ -955,8 +988,8 @@ window.switchTab = function(tabId) {
     }
 };
 
-debugLog('Script version 1.0.0 initialized!');
-debugLog('Running in FiveM context:', isFiveMContext());
+// debugLog('Script version 1.0.0 initialized!');
+// debugLog('Running in FiveM context:', isFiveMContext());
 
 setTimeout(() => {
     preloadImages([
@@ -974,7 +1007,7 @@ setTimeout(() => {
 
 window.addEventListener('pageshow', () => {
     if (audioInitialized && isMusicPlaying && backgroundMusic && backgroundMusic.paused) {
-        debugLog('Page shown event - checking audio');
+        // debugLog('Page shown event - checking audio');
         setTimeout(playAudio, 500);
     }
 });

@@ -1,0 +1,277 @@
+/* 
+ * GTA-style Minigame - NCHub Loading Screen
+ * A simple getaway driver game in GTA style
+ * Created by NaorNC - All rights reserved - Discord.gg/NCHub
+ */
+
+.gta-game-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.gta-game-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+}
+
+.gta-game-stat {
+    text-align: center;
+    flex: 1;
+}
+
+.gta-game-stat-label {
+    font-size: 14px;
+    color: var(--accent-color);
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.gta-game-stat-value {
+    font-size: 18px;
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+#gta-game-wanted i {
+    color: var(--accent-color);
+    font-size: 16px;
+    margin: 0 2px;
+}
+
+#gta-game-wanted i.inactive {
+    opacity: 0.3;
+}
+
+.gta-game-area {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background-color: #333;
+    overflow: hidden;
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.gta-game-road {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #222;
+    z-index: 1;
+}
+
+.gta-road-line {
+    position: absolute;
+    width: 10px;
+    height: 50px;
+    background-color: #FFF;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.gta-road-line:nth-child(1) {
+    top: 0;
+}
+
+.gta-road-line:nth-child(2) {
+    top: 33%;
+}
+
+.gta-road-line:nth-child(3) {
+    top: 66%;
+}
+
+.gta-player-car {
+    position: absolute;
+    width: 40px;
+    height: 70px;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    transition: left 0.1s ease-out;
+}
+
+.gta-car-body {
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+.gta-car-body:before {
+    content: '';
+    position: absolute;
+    width: 80%;
+    height: 40%;
+    background-color: rgba(255, 255, 255, 0.2);
+    top: 10%;
+    left: 10%;
+    border-radius: 3px;
+}
+
+.gta-car-body:after {
+    content: '';
+    position: absolute;
+    width: 80%;
+    height: 15%;
+    background-color: rgba(0, 0, 0, 0.3);
+    bottom: 10%;
+    left: 10%;
+    border-radius: 2px;
+}
+
+.gta-obstacle {
+    position: absolute;
+    width: 35px;
+    height: 60px;
+    background-color: #c62828;
+    border-radius: 5px;
+    z-index: 5;
+    top: -80px;
+}
+
+.gta-obstacle:before {
+    content: '';
+    position: absolute;
+    width: 80%;
+    height: 40%;
+    background-color: rgba(255, 255, 255, 0.2);
+    top: 10%;
+    left: 10%;
+    border-radius: 3px;
+}
+
+.gta-obstacle.police {
+    background-color: #1565c0;
+}
+
+.gta-obstacle.police:after {
+    content: '';
+    position: absolute;
+    width: 60%;
+    height: 10%;
+    background-color: red;
+    top: 0;
+    left: 20%;
+    border-radius: 5px;
+    animation: police-lights 0.5s infinite alternate;
+}
+
+@keyframes police-lights {
+    0% { background-color: #f44336; }
+    100% { background-color: #2196f3; }
+}
+
+.gta-obstacle.truck {
+    width: 45px;
+    height: 90px;
+    background-color: #607d8b;
+}
+
+.gta-coin {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #ffd700;
+    border-radius: 50%;
+    z-index: 5;
+    top: -30px;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+    animation: coin-rotate 1s infinite linear;
+}
+
+@keyframes coin-rotate {
+    0% { transform: rotateY(0deg); }
+    100% { transform: rotateY(360deg); }
+}
+
+.gta-explosion {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle, #ff9800, #f44336);
+    border-radius: 50%;
+    z-index: 15;
+    animation: explode 0.5s forwards;
+    opacity: 0.9;
+}
+
+@keyframes explode {
+    0% { transform: scale(0.5); opacity: 0.9; }
+    50% { transform: scale(1.2); opacity: 0.7; }
+    100% { transform: scale(1.5); opacity: 0; }
+}
+
+.gta-game-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    z-index: 20;
+    width: 80%;
+}
+
+.gta-controls-hint {
+    font-size: 16px;
+    margin-top: 10px;
+    color: var(--accent-color);
+}
+
+.gta-game-over {
+    animation: game-over-flash 1.5s;
+}
+
+@keyframes game-over-flash {
+    0%, 20%, 40% { background-color: #880000; }
+    10%, 30%, 50% { background-color: #222; }
+    60%, 100% { background-color: #222; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .gta-game-area {
+        height: 350px;
+    }
+    
+    .gta-game-stat-label {
+        font-size: 12px;
+    }
+    
+    .gta-game-stat-value {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gta-game-area {
+        height: 300px;
+    }
+    
+    .gta-game-message {
+        font-size: 20px;
+        padding: 15px;
+    }
+    
+    .gta-controls-hint {
+        font-size: 14px;
+    }
+}
