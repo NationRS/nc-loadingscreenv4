@@ -131,7 +131,7 @@ function createUpdateCard(update) {
                 </div>
             </div>
         </div>
-		    <div class="update-title-banner"><i class="fas fa-calendar">&nbsp;</i>${update.title}</div>
+		    <div class="update-title-banner">${update.title}</div>
         <div class="update-content">${formatUpdateContent(update.content)}</div>
     `;
 

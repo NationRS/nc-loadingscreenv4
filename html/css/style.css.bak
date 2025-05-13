@@ -4480,7 +4480,7 @@ background: var(--dark-bg) !important;
     /* margin-bottom: 16px; */
     /* border-radius: 8px; */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}.update-content {
+}}.update-content {
     font-size: 12px;
     line-height: 1.6;
     color: var(--text-color);
@@ -4490,43 +4490,6 @@ background: var(--dark-bg) !important;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-top: 8px;
 }
-
-/* Custom Theme Creator Styles */
-#custom-theme-creator {
-    margin: 20px 0;
-    padding: 16px;
-    background-color: var(--dark-bg);
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    color: var(--text-color);
-}
-
-#custom-theme-creator label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-}
-
-#custom-theme-creator input {
-    margin-bottom: 16px;
-    padding: 8px;
-    border: 1px solid var(--primary-color);
-    border-radius: 4px;
-    width: 100%;
-}
-
-#custom-theme-creator button {
-    background-color: var(--primary-color);
-    color: var(--text-color);
-    border: none;
-    padding: 10px 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-#custom-theme-creator button:hover {
-    background-color: var(--primary-color-hover, #2980b9);
 }
 
 

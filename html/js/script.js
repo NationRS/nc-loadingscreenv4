@@ -201,16 +201,29 @@ function initCursor() {
 
 function initSocialLinks() {
     // debugLog('Initializing social links');
-    
+
     const socialLinks = document.querySelectorAll('.social-icon');
-    
+
     socialLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
-            
+
             const url = this.getAttribute('href');
             if (url && url !== '#') {
                 // debugLog('Social link clicked:', url);
+                openExternalBrowser(url);
+            }
+        });
+    });
+
+    // Initialize top-left social links
+    const topLeftLinks = document.querySelectorAll('.social-links-container .social-icon');
+    topLeftLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            const url = this.getAttribute('href');
+            if (url && url !== '#') {
                 openExternalBrowser(url);
             }
         });
