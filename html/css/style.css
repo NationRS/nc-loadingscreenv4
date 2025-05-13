@@ -1301,7 +1301,7 @@
   .progress-container {
       background-color: var(--dark-bg);
       border-radius: 12px;
-      padding: 1.5rem;
+      padding: 1.0rem;
       box-shadow: var(--glass-effect);
       border: 1px solid var(--border-color);
       position: relative;
@@ -1319,16 +1319,15 @@
       opacity: 0.5;
   }
   
-  .loading-status {
-      font-size: 1rem;
-      margin-bottom: 0.5rem;
-      text-align: center;
-      font-weight: 500;
+ .loading-status {
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding-bottom: 3px;
       letter-spacing: 0.5px;
-      color: rgba(var(--accent-color-rgb), 0.9);
+      color: var(--accent-color);
+      text-align: center;
       text-shadow: 0 0 10px rgba(var(--accent-color-rgb), 0.3);
   }
-  
   /* GTA V Realistic Scene Animation */
   .gta-scene-container {
       display: flex;
@@ -2113,10 +2112,11 @@
   }
   
   .loading-percentage {
-      text-align: right;
+      text-align: center;
       font-size: 0.9rem;
       font-weight: 600;
       color: rgba(var(--primary-color-rgb), 0.9);
+      padding-bottom: 3px;
   }
   
   /* Footer */
